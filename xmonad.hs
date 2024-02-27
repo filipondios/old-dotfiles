@@ -12,85 +12,46 @@ import XMonad.Config.Desktop
 import Data.Monoid
 import Data.Maybe (isJust)
 import System.IO (hPutStrLn)
+import XMonad.Prompt
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
 -- Utilities
-import XMonad.Util.Loggers
-import XMonad.Util.EZConfig (additionalKeysP, additionalMouseBindings)
-import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run (safeSpawn, unsafeSpawn, runInTerm, spawnPipe)
+import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
+import XMonad.Util.Run (spawnPipe)
 
 -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops 
-import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
 import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
-import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
-import XMonad.Hooks.WorkspaceHistory
 
 -- Actions
-import XMonad.Actions.Minimize (minimizeWindow)
 import XMonad.Actions.Promote
-import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
-import XMonad.Actions.CopyWindow (kill1, copyToAll, killAllOtherCopies, runOrCopy)
-import XMonad.Actions.WindowGo (runOrRaise, raiseMaybe)
-import XMonad.Actions.WithAll (sinkAll, killAll)
-import XMonad.Actions.CycleWS (moveTo, shiftTo, WSType(..), nextScreen, prevScreen, shiftNextScreen, shiftPrevScreen, swapNextScreen)
+import XMonad.Actions.CopyWindow (kill1)
+import XMonad.Actions.CycleWS (WSType(..))
 import XMonad.Actions.GridSelect
-import XMonad.Actions.DynamicWorkspaces (addWorkspacePrompt, removeEmptyWorkspace)
 import XMonad.Actions.MouseResize
-import qualified XMonad.Actions.ConstrainedResize as Sqr
-import XMonad.Actions.WindowMenu
 import XMonad.Actions.UpdatePointer
-
--- Prompt
-import XMonad.Prompt
-import XMonad.Prompt.Input
-import XMonad.Prompt.FuzzyMatch
-import XMonad.Prompt.Man
-import XMonad.Prompt.Pass
-import XMonad.Prompt.Shell (shellPrompt)
-import XMonad.Prompt.Ssh
-import XMonad.Prompt.XMonad
-import Control.Arrow (first)
 import XMonad.Prompt.ConfirmPrompt
 
--- Data
-import Data.Char (isSpace)
-
 -- Layouts modifiers
-import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Renamed (renamed, Rename(CutWordsLeft, Replace))
-import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.Spacing (spacing)
 import XMonad.Layout.NoBorders
-import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
-import XMonad.Layout.WindowArranger (windowArrange, WindowArrangerMsg(..))
-import XMonad.Layout.Reflect (reflectVert, reflectHoriz, REFLECTX(..), REFLECTY(..))
+import XMonad.Layout.LimitWindows (limitWindows)
+import XMonad.Layout.WindowArranger (windowArrange)
 import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
-import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, MIRROR, NOBORDERS))
-import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
+import XMonad.Layout.MultiToggle.Instances (StdTransformers(NBFULL, NOBORDERS))
+import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts)
 
 -- Layouts
-import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
-import XMonad.Layout.OneBig
-import XMonad.Layout.ThreeColumns
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.ZoomRow (zoomRow, zoomIn, zoomOut, zoomReset, ZoomMessage(ZoomFullToggle))
-import XMonad.Layout.IM (withIM, Property(Role))
 import XMonad.Layout.Accordion
-import XMonad.Layout.Cross
 
--- Prompts
-import XMonad.Prompt
-import XMonad.Prompt.Man
-import XMonad.Prompt.AppendFile
 --
 --
 -- End of imports
@@ -250,7 +211,6 @@ myKeys =
   [("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
    ("M-S-q", exitPrompt),                           -- Quit Xmonad
    ("M-q", kill1),                                  -- Kill focused window
-   ("M-S-a", killAll),                              -- Kill all the windows
    ("M-<Delete>", withFocused $ windows . W.sink),  -- Restart floating window
   
    -- Show Browsers Menu
