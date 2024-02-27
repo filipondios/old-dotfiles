@@ -4,7 +4,7 @@ Config {
      font =         "JetBrainsMono Nerd Font 20"
    , bgColor =      "#121212"
    , fgColor =      "#605e6c"
-   , position =     TopSize L 200 55
+   , position =     TopSize L 200 60
    , border =       BottomB
    , borderColor =  "#121212"
 
@@ -15,7 +15,7 @@ Config {
 <fc=#666666>|</fc> <fc=#b3afc2><fn=1></fn>%uname%</fc>"
 
    -- general behavior
-   , lowerOnStart =     True 
+   , lowerOnStart =     False 
    , hideOnStart =      False
    , allDesktops =      True 
    , overrideRedirect = True 
