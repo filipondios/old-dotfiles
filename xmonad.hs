@@ -118,6 +118,13 @@ urgentWorkspaceColor  = "#cc241d"
 xmobarTitleColor      = "#FBF1C7"
 xmobarSeparatorColor  = "#cc241d"
 
+-- XPrompt Colors
+xpBackgroundColor = "#282828"
+xpForegroundColor = "#EBDBB2"
+xpBorderColor     = "#DC9656"
+xpLightBackgroundColor = "#458588"
+xpDarkBackgroundColor  = "#ffffff"
+
 -- Command To Init Xmobar
 initXmobar :: String 
 initXmobar  = "xmobar -x 0 ~/.config/xmonad/xmobar/xmobarrc0"
@@ -204,220 +211,86 @@ mygridConfig colorizer = (buildDefaultGSConfig myColorizer) {
 -- Function to Spawn the selected Grid 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
-    where conf = def
+  where conf = def
 
-----------------------------------------------------------------------------------
---                          XPROMPT Configuraciones                            ---
-----------------------------------------------------------------------------------
-
+-- XPrompt Configurations
 omarXPConfig :: XPConfig
-omarXPConfig = def
-      { font                = myFont
-      , bgColor             = "#282828"
-      , fgColor             = "#EBDBB2"
-      , bgHLight            = "#458588"
-      , fgHLight            = "#ffffff"
-      , borderColor         = "#DC9656"
-      , promptBorderWidth   = 0
-      , position            = Top
---    , position            = CenteredAt { xpCenterY = 0.3, xpWidth = 0.3 }
-      , height              = 20
-      , historySize         = 256
-      , historyFilter       = id
-      , defaultText         = []
-      , autoComplete        = Just 10000
-      , showCompletionOnTab = False
-      --, searchPredicate     = isPrefixOf
-      --, searchPredicate     = fuzzyMatch
-      , alwaysHighlight     = True
-      , maxComplRows        = Nothing
-      }
+omarXPConfig = def {
+  font                = myFont,
+  bgColor             = xpBackgroundColor,
+  fgColor             = xpForegroundColor,
+  bgHLight            = xpLightBackgroundColor,
+  fgHLight            = xpDarkBackgroundColor,
+  borderColor         = xpBorderColor,
+  promptBorderWidth   = 0,
+  position            = Top,
+  height              = 20,
+  historySize         = 256,
+  historyFilter       = id,
+  defaultText         = [],
+  autoComplete        = Just 10000,
+  showCompletionOnTab = False,
+  alwaysHighlight     = True,
+  maxComplRows        = Nothing
+}
 
 omarXPConfig' :: XPConfig
-omarXPConfig' = omarXPConfig
-      { autoComplete        = Nothing
-      }
-----------------------------------------------------------------------------------
---                  Funcion Buscar Ruta o Archivo                              ---
-----------------------------------------------------------------------------------
-    --
-whereis :: XPConfig -> String -> X ()
-whereis c ans =
-    inputPrompt c (trim ans) ?+ \input ->
-        liftIO(runProcessWithInput "whereis" [input] "") >>= whereis c
-    where
-        trim = f . f
-            where f = reverse . dropWhile isSpace
-----------------------------------------------------------------------------------
---                  Funcion Promt confirmar salida de Xmonad                   ---
-----------------------------------------------------------------------------------
-    --
+omarXPConfig' = omarXPConfig {
+  autoComplete = Nothing
+}
+
+-- Function to ask for exiting
+-- Xmonad confirmation
 exitPrompt :: X ()
-exitPrompt = confirmPrompt omarXPConfig "Quit XMonad?" $ io exitSuccess
+exitPrompt = do
+  confirmPrompt omarXPConfig "Quit XMonad?" $ io exitSuccess
 
-----------------------------------------------------------------------------------
----                       COMBINACION DE TECLAS                                ---
-----------------------------------------------------------------------------------
-
+-- System Key Bindings
 myKeys =
-    -- configuraciones Xmonad
-        [ ("M-C-r", spawn "xmonad --recompile")                             -- Recompilar xmonad
-        , ("M-S-r", spawn "xmonad --restart")                               -- Restar xmonad
-        , ("M-S-e", exitPrompt)                                             -- Salir de xmonad
+  [("M-S-r", spawn "xmonad --recompile && xmonad --restart"),
+   ("M-S-q", exitPrompt),                           -- Quit Xmonad
+   ("M-q", kill1),                                  -- Kill focused window
+   ("M-S-a", killAll),                              -- Kill all the windows
+   ("M-<Delete>", withFocused $ windows . W.sink),  -- Restart floating window
+  
+   -- Show Browsers Menu
+   (("M-C-b"), spawnSelected'
+   [("Firefox", "firefox")]),
 
-    -- Acciones sobre las ventanas
-        , ("M-q", kill1)                                                    -- Cerrar ventana
-        , ("M-S-q", killAll)                                                -- Cerrar todas las ventanas
-        , ("M-<Delete>", withFocused $ windows . W.sink)                    -- Restaurar ventna flotante
+   -- Show Text Editors Menu
+   (("M-C-e"), spawnSelected'
+   [("VsCode", "code"), -- Open VsCode
+    ("Neovim", "nvim"), -- Open Neovim
+    ("Vim", "vim")]),   -- Open vim
 
+   -- URLs Menu
+   (("M-C-s"), spawnSelected'
+   [("GitHub", "firefox https://github.com/dpv927"), -- Open My Github
+    ("ChatGPT", "firefox https://chat.openai.com"),  -- Open ChatGPT
+    ("Youtube", "firefox https://youtube.com"),      -- Open Youtube
+    ("Reddit", "firefox https://reddit.com"),        -- Open Reddit
+    ("Chess.com", "firefox https://chess.com")]),    -- Open Chess.com
 
-    -- Menu Browers
-        , (("M-C-i"), spawnSelected'
-          [ ("Chrome", "google-chrome-stable")
-          , ("Firefox", "firefox")
-          , ("Chromium", "chromium")
-          , ("Qutebrowser", "qutebrowser")
-          , ("Tor", "exec-in-shell ~/tools/tor/./Browser/start-tor-browser --detach")
-          ])
+   -- Window Navigation
+   ("M-m", windows W.focusMaster),     -- Focus master window in stack
+   ("M-<Down>", windows W.focusDown),  -- Focus next window in stack
+   ("M-<Up>", windows W.focusUp),      -- Focus previous window in stack
+   ("M-S-<Down>", windows W.swapDown), -- Swap selected window with the one above
+   ("M-S-<Up>", windows W.swapUp),     -- Swap selected window with the one
+   ("M-<Backspace>", promote),         -- Make the selected window master
+  
+   -- Layouts
+   ("M-<Tab>", sendMessage NextLayout), -- Change Layout
+   ("M-S-<Left>", sendMessage Shrink),  -- Shrink selected window
+   ("M-S-<Right>", sendMessage Expand), -- Expand selected window
 
-    -- Menu Grid Archivos - Editor
-        , (("M-C-o"), spawnSelected'
-          [ ("VsCode", "code")
-          , ("Vifm", "gnome-terminal -e vifm")
-          , ("Nautilus", "nautilus")
-          , ("Telegram", "telegram-desktop")
-          , ("Discord", "exec-in-shell ~/tools/Discord/Discord")
-          ])
-    
-
-    -- Menu URLs
-          , (("M-C-u"), spawnSelected'
-          [ ("0day", "google-chrome-stable 0day.today")
-          , ("Explot DB", "google-chrome-stable exploit-db.com")
-          , ("PacketStorm", "google-chrome-stable packetstormsecurity.com ")
-          , ("GTFOBins", "google-chrome-stable gtfobins.github.io")
-          , ("TaurusOmar", "google-chrome-stable taurusomar.com")
-          , ("GitHub ", "google-chrome-stable github.com")
-          ])
-
-
-    -- Menu Tools
-          , (("M-C-p"), spawnSelected'
-          [ 
-             ("BurpSuite", "java -jar  ~/tools/web/burpsuite/burpsuite.jar")
-           , ("Sqlmap", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/sqlmap/sqlmap.py'")
-           , ("Subfinder", "gnome-terminal -- zsh -c 'exec-in-shell subfinder'")
-           , ("Httpx", "gnome-terminal -- zsh -c 'exec-in-shell httpx'")
-           , ("Amss", "gnome-terminal -- zsh -c 'exec-in-shell amass'")
-           , ("Zap Proxy", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/zap/zap.sh'")
-           , ("Ffuf - Fuzz", "gnome-terminal -- zsh -c 'exec-in-shell ffuf'")
-           , ("Nmap", "gnome-terminal -- zsh -c 'exec-in-shell nmap'")
-           , ("Dirsearch", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/dirsearch/dirsearch.py -h'")
-           , ("Nuclei", "gnome-terminal -- zsh -c 'exec-in-shell nuclei'")
-           , ("Paramspider", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/ParamSpider/paramspider.py'")
-           , ("Sublist3r", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/Sublist3r/sublist3r.py'")
-           , ("Gobuster", "gnome-terminal -- zsh -c 'exec-in-shell gobuster'")
-           , ("Wfuzz", "gnome-terminal -- zsh -c 'exec-in-shell wfuzz'")
-           , ("GitRob", "gnome-terminal -- zsh -c 'exec-in-shell gitrob'")
-           , ("Joomscan", "gnome-terminal -- zsh -c 'exec-in-shell perl ~/tools/web/joomscan/joomscan.pl'")
-           , ("Wpscan", "gnome-terminal -- zsh -c 'exec-in-shell wpscan -h'") 
-           , ("Rustscan", "gnome-terminal -- zsh -c 'exec-in-shell rustscan'")
-           , ("Httprobe", "gnome-terminal -- zsh -c 'exec-in-shell httprobe -h'")
-           , ("getJS", "gnome-terminal -- zsh -c 'exec-in-shell getJS -h'")
-           , ("Arjun", "gnome-terminal -- zsh -c 'exec-in-shell ~/.local/bin/arjun'")
-           , ("Crlfuzz", "gnome-terminal -- zsh -c 'exec-in-shell crlfuzz'")
-           , ("Xsrfprobe", "gnome-terminal -- zsh -c 'exec-in-shell ~/.local/bin/xsrfprobe'")
-           , ("Liffy", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/liffy/liffy.py'")
-           , ("GraphQLmap", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/GraphQLmap/graphqlmap.py'")
-           , ("Dom Red", "gnome-terminal -- zsh -c 'exec-in-shell python ~/tools/web/dom-red/dom-red.py'")
-           , ("OpenRedireX", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/OpenRedireX/openredirex.py'")
-           , ("Smuggler", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/smuggler/smuggler.py'")
-           , ("SSRFmap", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/SSRFmap/ssrfmap.py'")
-           , ("HashCcat", "gnome-terminal -- zsh -c 'exec-in-shell hashcat'")
-           , ("BruteMap", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/brutemap/brutemap.py'")
-           , ("Request Smuggler", "gnome-terminal -- zsh -c 'exec-in-shell ~/.cargo/bin/request_smuggler'")
-           , ("Cerbrutus", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/cerbrutus/cerbrutus.py -h'")
-           , ("AppkLeaks", "gnome-terminal -- zsh -c 'exec-in-shell ~/.local/bin/apkleaks'")
-           , ("JWT_Tool", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/jwt_tool/jwt_tool.py'")
-           , ("Jexboss", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/jexboss/jexboss.py'")
-           , ("Waybackurls", "gnome-terminal -- zsh -c 'exec-in-shell waybackurls -h'")
-           , ("Patator", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/patator/patator.py'")
-           , ("Didar", "gnome-terminal -- zsh -c 'exec-in-shell dirdar -h'")
-           , ("Bypass 403", "gnome-terminal -- zsh -c 'exec-in-shell ~/tools/web/bypass-403/bypass-403.sh'")
-           , ("DirBuster", "java -jar ~/tools/web/dirbuster/DirBuster-0.12.jar")
-           , ("Hash-Buster", "gnome-terminal -- zsh -c 'exec-in-shell python3 ~/tools/web/Hash-Buster/hash.py'")
-           , ("Crackmapexec", "gnome-terminal -- zsh -c 'exec-in-shell  ~/.local/bin/crackmapexec'")
-           , ("Deathstar", "gnome-terminal -- zsh -c 'exec-in-shell  ~/.local/bin/deathstar'")
-           , ("Cloudfail", "gnome-terminal -- zsh -c 'exec-in-shell  python3 ~/tools/web/CloudFail/cloudfail.py'")
-           , ("Linkfinder", "gnome-terminal -- zsh -c 'exec-in-shell  python3 ~/tools/web/LinkFinder/linkfinder.py'")
-           , ("Subzy", "gnome-terminal -- zsh -c 'exec-in-shell subzy'")
-           , ("Shellerator", "gnome-terminal -- zsh -c 'exec-in-shell  python3 ~/tools/web/shellerator/shellerator.py'")
-           , ("Enum4linux", "gnome-terminal -- zsh -c 'exec-in-shell  python3 ~/tools/web/enum4linux-ng/enum4linux-ng.py'")
-           , ("Metasploit", "gnome-terminal -- zsh -c 'exec-in-shell  msfconsole'")
-
-
-          ])
-
-    -- Run Prompt
-        , ("M-C-<Return>", shellPrompt omarXPConfig)                                    -- Abrir shellPrompt
-        , ("M-C-w", whereis omarXPConfig "whereis")                                     -- Buscar Path
-        , ("M-C-s", sshPrompt omarXPConfig)                                             -- Conexion SSH
-        , ("M-C-g", goToSelected $ mygridConfig myColorizer)                            -- Ir a la ventana
-        , ("M-C-b", bringSelected $ mygridConfig myColorizer)                           -- Traer Ventana al espacion de trabajo
-        , ("M-C-h", manPrompt omarXPConfig)                                             -- Comando man 
-        , ("M-C-n", appendFilePrompt omarXPConfig "/home/omar/notas/notas.txt")         -- Agregar notas rapidas
-       -- , ("M-C-p", windowMenu)
-
-    -- Navegacion de ventanas
-        , ("M-m", windows W.focusMaster)                                                -- Focus a la princial ventana
-        , ("M-<Down>", windows W.focusDown)                                             -- Focus a la siguiente ventana
-        , ("M-<Up>", windows W.focusUp)                                                 -- Focus a la ventana anterior
-        , ("M-S-<Down>", windows W.swapDown)                                            -- Cambiar posicion de ventana hacia abajo
-        , ("M-S-<Up>", windows W.swapUp)                                                -- Cambiar posicion de ventana hacia arriba
-        , ("M-<Backspace>", promote)                                                    -- Mover la ventana como master principal
-        , ("M-S-<KP_Add>", shiftTo Next nonNSP >> moveTo Next nonNSP)                   -- Cambiar ventana en el siguiente grupo de trabajo (tecla +)
-        , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)              -- Cambiar ventana al anterior grupo de trabajo (tecla -)
-
-
-    -- Layouts
-        , ("M-<Tab>", sendMessage NextLayout)                                        -- Cambiar de diseno de ventanas
-        , ("M-S-f", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts)         -- Ventana todo pantalla
-        , ("M-<KP_Multiply>", sendMessage (IncMasterN 1))                            -- Incrementar el numero de venatas para un grupo de trabajo o dividir pantall vertical
-        , ("M-<KP_Divide>", sendMessage (IncMasterN (-1)))                           -- Decrementar el numero de venatas para un grupo de trabajo o dividir pantall horizontal
-        , ("M-S-<KP_Multiply>", increaseLimit)                                       -- Mover para de ventana para delante por los diferentes grupos de trabajo
-        , ("M-S-<KP_Divide>", decreaseLimit)                                         -- Mover para de ventana para atras por los diferentes grupos de trabajo
-        , ("M-S-<Left>", sendMessage Shrink)                                         -- Aumentar tamano de ancho izquierda
-        , ("M-S-<Right>", sendMessage Expand)                                        -- Aumentar tamano de ancho derecha
-
-    -- Para varios monitores
-       -- , ("M-.", nextScreen)                                                      -- Cambiar al siguiente monitor
-       -- , ("M-,", prevScreen)                                                      -- Cambiar al monitor previo
-
-    --- Programas
-        , ("M-d", spawn "rofi -show run")
-        , ("M-p", spawn "flameshot gui")
-        , ("M-<Return>", spawn (myTerminal ++ " -e zsh"))
-
-
-    -- Media Keys
-        , ("<XF86AudioPlay>", spawn "deadbeef --play-pause")
-        , ("<XF86AudioStop>", spawn "deadbeef --stop")
-        , ("<XF86AudioPrev>", spawn "deadbeef --prev")
-        , ("<XF86AudioNext>", spawn "deadbeef --next")
-        , ("<XF86MonBrightnessUp>", spawn "bright")
-        , ("<XF86MonBrightnessDown>", spawn "bright -d")
-        , ("<XF86AudioMute>",   spawn "amixer set Master toggle")
-        , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
-        , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
-        , ("<XF86HomePage>", spawn "qutebrowser")
-        , ("<XF86Search>", safeSpawn "qutebrowser" ["https://www.duckduckgo.com/"])
-        , ("<XF86Mail>", runOrRaise "geary" (resource =? "thunderbird"))
-        , ("<XF86Calculator>", runOrRaise "gcalctool" (resource =? "gcalctool"))
-        , ("<XF86Eject>", spawn "toggleeject")
-        , ("<Print>", spawn "scrotd 0")
-        ] where nonNSP          = WSIs (return (\ws -> W.tag ws /= "nsp"))
-                nonEmptyNonNSP  = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
-
+   -- System programs
+   ("M-d", spawn "rofi -show run"),   -- Rofi menu
+   ("M-S-s", spawn "flameshot gui"),  -- Screenshot
+   ("M-<Return>", spawn (myTerminal)) -- Terminal
+  ] where
+      nonNSP = WSIs (return (\ws -> W.tag ws /= "nsp"))
+      nonEmptyNonNSP = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
 
 ----------------------------------------------------------------------------------
 ---                        ESPACIOS DE TRABAJO                                 ---
