@@ -9,6 +9,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Hooks.UrgencyHook
 import XMonad.Util.SpawnOnce
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat, doCenterFloat)
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Util.Hacks (windowedFullscreenFixEventHook, javaHack, trayerAboveXmobarEventHook, trayAbovePanelEventHook, trayerPaddingXmobarEventHook, trayPaddingXmobarEventHook, trayPaddingEventHook)
 import qualified XMonad.StackSet as W
@@ -97,6 +98,36 @@ myLayoutHook = spacing windowGaps $ tiled |||  Mirror tiled ||| Full
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
+myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
+myManageHook = composeAll
+  -- 'doFloat' forces a window to float.  Useful for dialog boxes and such.
+  -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
+  -- I'm doing it this way because otherwise I would have to write out the full
+  -- name of my workspaces and the names would be very long if using clickable workspaces.
+  [ className =? "confirm"         --> doFloat
+  , className =? "file_progress"   --> doFloat
+  , className =? "dialog"          --> doFloat
+  , className =? "download"        --> doFloat
+  , className =? "error"           --> doFloat
+  , className =? "Gimp"            --> doFloat
+  , className =? "notification"    --> doFloat
+  , className =? "pinentry-gtk-2"  --> doFloat
+  , className =? "splash"          --> doFloat
+  , className =? "toolbar"         --> doFloat
+  , className =? "Yad"             --> doCenterFloat
+  , title =? "Oracle VM VirtualBox Manager"   --> doFloat
+  , title =? "Order Chain - Market Snapshots" --> doFloat
+  , title =? "emacs-run-launcher" --> doFloat
+  , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
+  , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
+  , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
+  , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
+  , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
+  , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+  , isFullscreen -->  doFullFloat
+  ]
+
+
 main = do
   xmproc <- spawnPipe "xmobar /home/tux/.config/xmonad/xmobar"
   xmonad $ def 
@@ -112,7 +143,9 @@ main = do
       keys = myKeys,
 
       -- Hooks, Layouts, ...
-      -- manageHook = manageDocks <+> manageHook defaultConfig,
+      -- ??? manageHook = manageDocks <+> manageHook defaultConfig,
+      manageHook = myManageHook <+> manageDocks,
+
       layoutHook = avoidStruts $ myLayoutHook,
       -- handleEventHook = handleEventHook -- <+> docksEventHook defaultConfig,
 
