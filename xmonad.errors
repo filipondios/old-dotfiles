@@ -1,1 +1,0 @@
-$ /nix/store/za798008s9rj3zs58rna7i5m5bc0r6rx-ghc-9.4.8-with-packages/bin/ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -v0 -outputdir /home/tux/.xmonad/build-x86_64-linux -o /home/tux/.xmonad/xmonad-x86_64-linux
