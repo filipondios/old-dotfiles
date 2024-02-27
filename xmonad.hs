@@ -292,52 +292,26 @@ myKeys =
       nonNSP = WSIs (return (\ws -> W.tag ws /= "nsp"))
       nonEmptyNonNSP = WSIs (return (\ws -> isJust (W.stack ws) && W.tag ws /= "nsp"))
 
-----------------------------------------------------------------------------------
----                        ESPACIOS DE TRABAJO                                 ---
-----------------------------------------------------------------------------------
+-- Workspaces 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
   where
-        doubleLts '<' = "<<"
-        doubleLts x   = [x]
+    doubleLts '<' = "<<"
+    doubleLts x   = [x]
 
+-- Workspaces icons/labels
 myWorkspaces :: [String]
-myWorkspaces = clickable . (map xmobarEscape)
-               $ [" www ", " term ", " code ", " file ", " chat ", " vpn ", "spfy", "", "vbox"]
-  where
-        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                      (i,ws) <- zip [1..9] l,
-                      let n = i ]
+myWorkspaces = [" bin ", " boot ", " dev ", " etc ", " home ", " proc ", " srv ", " sys "]
+
+-- Manage Hook (How to manage windows)
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll
-     [
-      className =? "qutebrowser"                  --> doShift "<action=xdotool key super+2>www</action>"
-      , title =? "New Tab-Google Chrome"          --> doShift "<action=xdotool key super+1>www</action>"
-      , title =? "Mozilla Firefox"                --> doShift "<action=xdotool key super+1>www</action>"
-      , title =? "pcmanfm"                        --> doShift "<action=xdotool key super+4>file</action>"
-      , className =? "code"                       --> doShift "<action=xdotool key super+7>code</action>"
-      , className =? "vlc"                        --> doShift "<action=xdotool key super+7>media</action>"
-      , className =? "Virtualbox"                 --> doFloat
-      , className =? "Gimp"                       --> doFloat
-      , className =? "Gimp"                       --> doShift "<action=xdotool key super+8>misc</action>"
-     -- , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
-     ]
+myManageHook = composeAll [className =? "Gimp" --> doFloat]
 
-----------------------------------------------------------------------------------
----                      DISENO DE ESPACIOS DE TRABAJO                         ---
-----------------------------------------------------------------------------------
+-- Workspaces design (Layouts)
 myLayoutHook =  avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats $
-               mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ myDefaultLayout
-             where
-                  myDefaultLayout = tall ||| Accordion ||| noBorders monocle
-
--- Descomentar para agregar mas disenos
---  myDefaultLayout = tall ||| grid ||| threeCol ||| threeRow ||| oneBig ||| noBorders monocle ||| space ||| floats
-tall         = renamed [Replace "tall"]     $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
---grid       = renamed [Replace "grid"]     $ limitWindows 12 $ spacing 6 $ mkToggle (single MIRROR) $ Grid (16/10)
---threeCol   = renamed [Replace "threeCol"] $ limitWindows 3  $ ThreeCol 1 (3/100) (1/2)
---threeRow   = renamed [Replace "threeRow"] $ limitWindows 3  $ Mirror $ mkToggle (single MIRROR) zoomRow
---oneBig     = renamed [Replace "oneBig"]   $ limitWindows 6  $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (5/9) (8/12)
-monocle      = renamed [Replace "monocle"]  $ limitWindows 20 $ Full
---space      = renamed [Replace "space"]    $ limitWindows 4  $ spacing 12 $ Mirror $ mkToggle (single MIRROR) $ mkToggle (single REFLECTX) $ mkToggle (single REFLECTY) $ OneBig (2/3) (2/3)
-floats       = renamed [Replace "floats"]   $ limitWindows 20 $ simplestFloat
+  mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ myDefaultLayout
+  where
+    myDefaultLayout = tall ||| Accordion ||| noBorders monocle
+    tall = renamed [Replace "tall"] $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
+    monocle = renamed [Replace "monocle"]  $ limitWindows 20 $ Full
+    floats = renamed [Replace "floats"]   $ limitWindows 20 $ simplestFloat
