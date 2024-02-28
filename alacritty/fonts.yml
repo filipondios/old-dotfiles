@@ -1,0 +1,27 @@
+## Copyright (C) 2020-2023 Aditya Shakya <adi1090x@gmail.com>
+##
+## Font configuration
+
+font:
+  # Normal (roman) font face
+  normal:
+    family: "JetbrainsMono Nerd Font"
+    #style: Regular
+
+  # Bold font face
+  #bold:
+  #  family: "Cascadia code"
+  #  #style: Bold
+
+  # Italic font face
+  #italic:
+  #  family: "Cascadia code"
+  #  #style: Italic
+
+  # Bold italic font face
+  #bold_italic:
+  #  family: "Cascadia code"
+  #  #style: Bold Italic
+
+  # Point size
+  size: 12

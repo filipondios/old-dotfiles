@@ -1,0 +1,57 @@
+env:
+  TERM: alacritty
+
+window:
+  opacity: 1.0
+  padding:
+    x: 25
+    y: 25
+
+    dynamic_padding:  true
+    decoration: none
+
+colors:
+  primary:
+    background: '#14171c'
+    foreground: '#a2b5ce'
+
+  cursor:
+    text: '0x212121'
+    cursor: '0xeeffff'
+
+  # Normal colors
+  normal:
+    black:   '#14171c'
+    red:     '#fd6b85'
+    green:   '#98dd8b'
+    yellow:  '#ecd3a0'
+    blue:    '#67bbff'
+    magenta: '#a385dc'
+    cyan:    '#93cee9'
+    white:   '#97a4a0'
+
+  # Bright colors
+  bright:
+    black:   '#464c5b'
+    red:     '#e06c75'
+    green:   '#98dd8b'
+    yellow:  '#ecd3a0'
+    blue:    '#67bbff'
+    magenta: '#a385dc'
+    cyan:    '#93cee9'
+    white:   '0xeeffff'
+
+  indexed_colors:
+    - { index: 16, color: '0xf78c6c' }
+    - { index: 17, color: '0xff5370' }
+    - { index: 18, color: '0x303030' }
+    - { index: 19, color: '0x353535' }
+    - { index: 20, color: '0xb2ccd6' }
+    - { index: 21, color: '0xeeffff' }
+
+live_config_reload: true
+                 
+key_bindings:
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Equals, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
