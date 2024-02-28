@@ -11,7 +11,7 @@ Config { font = "Mononoki Nerd Font Bold 18"
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/tux/.config/xmonad/xpm/"  -- default: "."
+       , iconRoot = "/home/tux/.config/xmobar/xpm/"  -- default: "."
        , commands = [
                     -- Time and date
                       Run Date "<fc=#98dd8b><fn=2>\xf017</fn></fc> %b %d %Y - (%H:%M)  " "date" 50

@@ -92,7 +92,7 @@ xpFont = "xft:Ubuntu:pixelsize=24:antialias=true:hinting=true"
 
 -- Command To Init Xmobar
 initXmobar :: String 
-initXmobar  = "xmobar -x 0 ~/.config/xmonad/xmobar/xmobarrc0"
+initXmobar  = "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
 
 -- Function that obtains the number of 
 -- windows in a workspace

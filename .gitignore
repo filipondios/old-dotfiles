@@ -1,4 +1,38 @@
-# Ignore build files
-./xmonad-x86_64-linux
-./build-x86_64-linux/*.o
-./build-x86_64-linux/*.hi
+# Something
+.bash*
+.cache/
+.compose-cache/
+.gnome/
+.gtkrc-2.0
+.local/
+.mozilla/
+.npm/
+.oh-my-zsh/
+.wget-hsts
+
+# Nix things
+.nix-defexpr/
+.nix-profile 
+
+# X Session things
+.Xauthority
+.xsession-errors*
+
+# Zsh things
+.zcompdump*
+.zsh_history
+
+# ???
+Downloads/
+
+# Git
+.git-credentials
+.gitconfig
+
+# Noconf
+./.config/vifm/ 
+./.config/QtProject.conf 
+./.config/menus/ 
+./.config/pulse/ 
+./.config/flameshot/ 
+./.config/procps/ 
