@@ -60,31 +60,35 @@ import XMonad.Layout.Accordion
 --
 
 -- Basic Configuration
-myFont        = "Ubuntu Bold 16"
+myFont        = "Ubuntu Bold 24"
 myTerminal    = "alacritty"
 myTextEditor  = "nvim"
 myBorderWidth = 3
 myModMask     = mod4Mask
 
 -- Window Border Colors
-focusedColor  = "#427b58"
-inactiveColor = "#282828"
+focusedColor  = "#212335"
+inactiveColor = "#212335"
 
 -- Xmobar Module Colors
-currentWorkspaceColor = "#8EC07C"
-visibleWorkspaceColor = "#D79921"
-hiddenWorkspaceColor  = "#D79921"
-noWinWorkscaceColor   = "#a89984"
-urgentWorkspaceColor  = "#cc241d" 
-xmobarTitleColor      = "#FBF1C7"
-xmobarSeparatorColor  = "#cc241d"
+currentWorkspaceColor = "#a385dc"
+visibleWorkspaceColor = "#97a4a0"
+hiddenWorkspaceColor  = "#97a4a0"
+noWinWorkscaceColor   = "#464c5b"
+urgentWorkspaceColor  = "#fd6b85" 
+xmobarTitleColor      = "#a2b5ce"
+xmobarSeparatorColor  = "#fd6b85"
 
 -- XPrompt Colors
-xpBackgroundColor = "#282828"
-xpForegroundColor = "#EBDBB2"
-xpBorderColor     = "#DC9656"
+xpBackgroundColor = "#0d0f18"
+xpForegroundColor = "#97a4a0"
+xpBorderColor     = "#212335"
 xpLightBackgroundColor = "#458588"
 xpDarkBackgroundColor  = "#ffffff"
+
+-- XPrompt Font
+xpFont :: String 
+xpFont = "xft:Ubuntu:pixelsize=24:antialias=true:hinting=true"
 
 -- Command To Init Xmobar
 initXmobar :: String 
@@ -120,9 +124,9 @@ main = do
     -- Xmobar Modules In Real Time
     logHook = dynamicLogWithPP xmobarPP {
       ppOutput = \x -> hPutStrLn xmproc0 x
-      ,ppCurrent = xmobarColor (currentWorkspaceColor) "" . wrap "/" "/"
+      ,ppCurrent = xmobarColor (currentWorkspaceColor) "" . wrap "[" "]"
       , ppVisible         = xmobarColor (visibleWorkspaceColor) ""
-      , ppHidden          = xmobarColor (hiddenWorkspaceColor) "" . wrap "°" ""
+      , ppHidden          = xmobarColor (hiddenWorkspaceColor) "" . wrap "" ""
       , ppHiddenNoWindows = xmobarColor (noWinWorkscaceColor) ""
       , ppTitle           = xmobarColor (xmobarTitleColor) "" . shorten 60
       , ppSep             =  "<fc=" ++ (xmobarSeparatorColor) ++ "> => </fc>"
@@ -161,23 +165,30 @@ myColorizer = colorRangeFromClassName
 -- Manage Grid Dimensions
 mygridConfig :: (Window -> Bool -> X (String, String)) -> GSConfig Window
 mygridConfig colorizer = (buildDefaultGSConfig myColorizer) {
-  gs_cellheight   = 30,
-  gs_cellwidth    = 200,
-  gs_cellpadding  = 8,
+  gs_cellheight   = 200,
+  gs_cellwidth    = 400,
+  gs_cellpadding  = 10,
   gs_originFractX = 0.5,
   gs_originFractY = 0.5,
-  gs_font         = myFont
+  gs_font         = xpFont
 }
 
 -- Function to Spawn the selected Grid 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
-  where conf = def
+  where conf = def {
+    gs_cellheight   = 225,
+    gs_cellwidth    = 450,
+    gs_cellpadding  = 10,
+    gs_originFractX = 0.5,
+    gs_originFractY = 0.5,
+    gs_font         = xpFont
+  }
 
 -- XPrompt Configurations
-omarXPConfig :: XPConfig
-omarXPConfig = def {
-  font                = myFont,
+dpvXPConfig :: XPConfig
+dpvXPConfig = def {
+  font                = xpFont,
   bgColor             = xpBackgroundColor,
   fgColor             = xpForegroundColor,
   bgHLight            = xpLightBackgroundColor,
@@ -185,7 +196,7 @@ omarXPConfig = def {
   borderColor         = xpBorderColor,
   promptBorderWidth   = 0,
   position            = Top,
-  height              = 20,
+  height              = 55,
   historySize         = 256,
   historyFilter       = id,
   defaultText         = [],
@@ -195,8 +206,8 @@ omarXPConfig = def {
   maxComplRows        = Nothing
 }
 
-omarXPConfig' :: XPConfig
-omarXPConfig' = omarXPConfig {
+dpvXPConfig' :: XPConfig
+dpvXPConfig' = dpvXPConfig {
   autoComplete = Nothing
 }
 
@@ -204,7 +215,7 @@ omarXPConfig' = omarXPConfig {
 -- Xmonad confirmation
 exitPrompt :: X ()
 exitPrompt = do
-  confirmPrompt omarXPConfig "Quit XMonad?" $ io exitSuccess
+  confirmPrompt dpvXPConfig "Quit XMonad?: " $ io exitSuccess
 
 -- System Key Bindings
 myKeys =
@@ -213,15 +224,17 @@ myKeys =
    ("M-q", kill1),                                  -- Kill focused window
    ("M-<Delete>", withFocused $ windows . W.sink),  -- Restart floating window
   
-   -- Show Browsers Menu
-   (("M-C-b"), spawnSelected'
-   [("Firefox", "firefox")]),
-
    -- Show Text Editors Menu
    (("M-C-e"), spawnSelected'
    [("VsCode", "code"), -- Open VsCode
     ("Neovim", "nvim"), -- Open Neovim
     ("Vim", "vim")]),   -- Open vim
+
+   -- System Settings 
+   (("M-C-a"), spawnSelected'
+   [("Lxappearance", "lxappearance"),  -- Open lxappearance
+    ("Btop", myTerminal ++ "-e btop"), -- Open btop
+    ("Terminal", myTerminal)]),        -- Open terminal
 
    -- URLs Menu
    (("M-C-s"), spawnSelected'
@@ -247,6 +260,8 @@ myKeys =
    -- System programs
    ("M-d", spawn "rofi -show run"),   -- Rofi menu
    ("M-S-s", spawn "flameshot gui"),  -- Screenshot
+   ("M-f", spawn "firefox"),          -- Firefox
+   ("M-S-p", spawn "xcolor | tr -d '\n' | xclip -selection clipboard"), -- Color picker
    ("M-<Return>", spawn (myTerminal)) -- Terminal
   ] where
       nonNSP = WSIs (return (\ws -> W.tag ws /= "nsp"))
