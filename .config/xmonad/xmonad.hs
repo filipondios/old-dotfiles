@@ -51,6 +51,11 @@ import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts)
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Accordion
+import XMonad.Layout.Spacing
+import XMonad.Layout.WindowNavigation
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.Simplest
+import XMonad.Layout.Spiral
 
 --
 --
@@ -282,11 +287,29 @@ myWorkspaces = [" bin ", " boot ", " dev ", " etc ", " home ", " proc ", " srv "
 myManageHook :: Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll [className =? "Gimp" --> doFloat]
 
+-- Function that adds spacing to windows
+addSpacing i  = spacingRaw False (Border i i i i) True (Border i i i i) True
+addSpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
+
 -- Workspaces design (Layouts)
+
 myLayoutHook =  avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats $
   mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ myDefaultLayout
-  where
-    myDefaultLayout = tall ||| Accordion ||| noBorders monocle
-    tall = renamed [Replace "tall"] $ limitWindows 12 $ spacing 6 $ ResizableTall 1 (3/100) (1/2) []
-    monocle = renamed [Replace "monocle"]  $ limitWindows 20 $ Full
-    floats = renamed [Replace "floats"]   $ limitWindows 20 $ simplestFloat
+  where 
+    myDefaultLayout = spirals ||| tall ||| Accordion ||| noBorders monocle
+    spirals  = renamed [Replace "spirals"]
+      $ limitWindows 9
+      $ smartBorders
+      $ subLayout [] (smartBorders Simplest)
+      $ addSpacing 10
+      $ spiral (8/9)
+    tall = renamed [Replace "tall"] 
+      $ limitWindows 12 
+      $ spacing 6
+      $ ResizableTall 1 (3/100) (1/2) []
+    monocle = renamed [Replace "monocle"]  
+      $ limitWindows 20 
+      $ Full
+    floats = renamed [Replace "floats"] 
+      $ limitWindows 20 
+      $ simplestFloat
