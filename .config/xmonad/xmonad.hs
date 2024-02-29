@@ -24,8 +24,7 @@ import XMonad.Util.Run (spawnPipe)
 -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops 
-import XMonad.Hooks.ManageDocks (avoidStruts, manageDocks)
-import XMonad.Hooks.ManageHelpers (isFullscreen, doFullFloat)
+import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Hooks.SetWMName
 
 -- Actions
@@ -41,6 +40,7 @@ import XMonad.Prompt.ConfirmPrompt
 import XMonad.Layout.Renamed (renamed, Rename(CutWordsLeft, Replace))
 import XMonad.Layout.Spacing (spacing)
 import XMonad.Layout.NoBorders
+XMonad.Layout.ResizableTile (MirrorShrink, MirrorExpand)
 import XMonad.Layout.LimitWindows (limitWindows)
 import XMonad.Layout.WindowArranger (windowArrange)
 import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
@@ -51,11 +51,6 @@ import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts)
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Accordion
-import XMonad.Layout.Spacing
-import XMonad.Layout.WindowNavigation
-import XMonad.Layout.SubLayouts
-import XMonad.Layout.Simplest
-import XMonad.Layout.Spiral
 
 --
 --
@@ -91,13 +86,18 @@ xpBorderColor     = "#212335"
 xpLightBackgroundColor = "#458588"
 xpDarkBackgroundColor  = "#ffffff"
 
--- XPrompt Font
-xpFont :: String 
-xpFont = "xft:Ubuntu:pixelsize=24:antialias=true:hinting=true"
+-- Workspaces icons/labels
+myWorkspaces :: [String]
+myWorkspaces = [" bin ", " boot ", " dev ", " etc ", " home "]
 
 -- Command To Init Xmobar
 initXmobar :: String 
 initXmobar  = "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
+
+-- XPrompt Font
+xpFont :: String 
+xpFont = "xft:JetBrainsMono Nerd Font:pixelsize=24"
+
 
 -- Function that obtains the number of 
 -- windows in a workspace
@@ -120,12 +120,6 @@ main = do
 
   -- Xmonad Global config
   xmonad $ ewmh desktopConfig {
-    manageHook = 
-      (isFullscreen --> doFullFloat) <+>
-      myManageHook <+>
-      manageHook desktopConfig <+>
-      manageDocks,
-      
     -- Xmobar Modules In Real Time
     logHook = dynamicLogWithPP xmobarPP {
       ppOutput = \x -> hPutStrLn xmproc0 x
@@ -154,7 +148,11 @@ main = do
 -- Custom Startup Hook
 myStartupHook :: X()
 myStartupHook = do
+  spawn "killall xsettingsd"
   spawn "~/.fehbg"
+  spawnOnce "xrdb merge /home/tux/.Xresources"
+  spawnOnce "conky -c /home/tux/.config/conky/conkyrc &"
+  spawnOnce "xsettingsd --config=/home/tux/.config/xsettingsd &"
   spawnOnce "picom &"
   setWMName "LG3D"
 
@@ -232,14 +230,23 @@ myKeys =
    -- Show Text Editors Menu
    (("M-C-e"), spawnSelected'
    [("VsCode", "code"), -- Open VsCode
-    ("Neovim", "nvim"), -- Open Neovim
-    ("Vim", "vim")]),   -- Open vim
+    ("Neovim", myTerminal ++ " -e nvim"), -- Open Neovim
+    ("Vim", myTerminal ++ " -e vim")]),   -- Open vim
 
    -- System Settings 
    (("M-C-a"), spawnSelected'
-   [("Lxappearance", "lxappearance"),  -- Open lxappearance
-    ("Btop", myTerminal ++ "-e btop"), -- Open btop
-    ("Terminal", myTerminal)]),        -- Open terminal
+   [("Lxappearance", "lxappearance"),   -- Open lxappearance
+    ("Btop", myTerminal ++ " -e btop"), -- Open btop
+    ("Arandr", "arandr"),               -- Open btoP
+    ("Pavucontrol", "pavucontrol"),     -- Open audio settings
+    ("Terminal", myTerminal)]),         -- Open terminal
+
+   -- Xmonad Config 
+   (("M-C-x"), spawnSelected'
+   [("Edit xmonad.hs", myTerminal ++ " -e nvim /home/tux/.config/xmonad/xmonad.hs"),
+    ("Edit xmobarrc", myTerminal ++ " -e nvim /home/tux/.config/xmobar/xmobarrc0"),
+    ("Edit conkyrc", myTerminal ++ " -e nvim /home/tux/.config/conky/conkyrc"),
+    ("Edit picom.conf", myTerminal ++ " -e nvim /home/tux/.config/picom/picom.conf")]),
 
    -- URLs Menu
    (("M-C-s"), spawnSelected'
@@ -247,7 +254,10 @@ myKeys =
     ("ChatGPT", "firefox https://chat.openai.com"),  -- Open ChatGPT
     ("Youtube", "firefox https://youtube.com"),      -- Open Youtube
     ("Reddit", "firefox https://reddit.com"),        -- Open Reddit
-    ("Chess.com", "firefox https://chess.com")]),    -- Open Chess.com
+    ("Arch Packages", "firefox https://archlinux.org/packages/"),   -- Search ArchLinux packages
+    ("AUR Packages", "firefox https://aur.archlinux.org/packages"), -- Search AUR packages
+    ("Arch Wiki", "firefox https://wiki.archlinux.org/"), -- ArchLinux Wiki
+    ("Chess.com", "firefox https://chess.com")]), -- Open Chess.com
 
    -- Window Navigation
    ("M-m", windows W.focusMaster),     -- Focus master window in stack
@@ -279,30 +289,11 @@ xmobarEscape = concatMap doubleLts
     doubleLts '<' = "<<"
     doubleLts x   = [x]
 
--- Workspaces icons/labels
-myWorkspaces :: [String]
-myWorkspaces = [" bin ", " boot ", " dev ", " etc ", " home ", " proc ", " srv ", " sys "]
-
--- Manage Hook (How to manage windows)
-myManageHook :: Query (Data.Monoid.Endo WindowSet)
-myManageHook = composeAll [className =? "Gimp" --> doFloat]
-
--- Function that adds spacing to windows
-addSpacing i  = spacingRaw False (Border i i i i) True (Border i i i i) True
-addSpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
-
 -- Workspaces design (Layouts)
-
 myLayoutHook =  avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts floats $
   mkToggle (NBFULL ?? NOBORDERS ?? EOT) $ myDefaultLayout
   where 
-    myDefaultLayout = spirals ||| tall ||| Accordion ||| noBorders monocle
-    spirals  = renamed [Replace "spirals"]
-      $ limitWindows 9
-      $ smartBorders
-      $ subLayout [] (smartBorders Simplest)
-      $ addSpacing 10
-      $ spiral (8/9)
+    myDefaultLayout = tall ||| Accordion ||| noBorders monocle
     tall = renamed [Replace "tall"] 
       $ limitWindows 12 
       $ spacing 6

@@ -1,2 +1,2 @@
 #!/bin/sh
-/run/current-system/sw/bin/feh --no-fehbg --bg-fill '/home/tux/Pictures/yosemite-lowpoly.jpg' 
+feh --no-fehbg --bg-fill '/home/tux/Pictures/yosemite-lowpoly.jpg' 

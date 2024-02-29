@@ -32,7 +32,15 @@ Downloads/
 # Noconf
 .config/QtProject.conf
 .config/flameshot/
-.config/gtk-3.0/
 .config/menus/
 .config/pulse/
 .config/vifm/
+.dmrc
+.config/pavucontrol.ini
+.shell.pre-oh-my-zsh
+
+# Haskell 
+.ghcup/
+.stack/
+.cabal/
+.config/ghc/
