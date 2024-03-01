@@ -40,7 +40,6 @@ import XMonad.Prompt.ConfirmPrompt
 import XMonad.Layout.Renamed (renamed, Rename(CutWordsLeft, Replace))
 import XMonad.Layout.Spacing (spacing)
 import XMonad.Layout.NoBorders
-XMonad.Layout.ResizableTile (MirrorShrink, MirrorExpand)
 import XMonad.Layout.LimitWindows (limitWindows)
 import XMonad.Layout.WindowArranger (windowArrange)
 import XMonad.Layout.MultiToggle (mkToggle, single, EOT(EOT), Toggle(..), (??))
