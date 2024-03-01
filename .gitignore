@@ -3,7 +3,6 @@
 .cache/
 .compose-cache/
 .gnome/
-.gtkrc-2.0
 .local/
 .mozilla/
 .npm/
@@ -37,6 +36,7 @@ Desktop/
 .config/pulse/
 .config/dconf/
 .config/vifm/
+.config/gtk-2.0/
 .dmrc
 .config/pavucontrol.ini
 .shell.pre-oh-my-zsh
