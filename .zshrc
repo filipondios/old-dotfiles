@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+PATH=$PATH:/home/tux/.local/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -102,3 +103,4 @@ alias la='lsd -a'
 alias ll='lsd -l'
 
 [ -f "/home/tux/.ghcup/env" ] && source "/home/tux/.ghcup/env" # ghcup-env
+echo -e "" && neofetch

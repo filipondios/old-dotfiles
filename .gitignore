@@ -34,6 +34,7 @@ Downloads/
 .config/flameshot/
 .config/menus/
 .config/pulse/
+.config/dconf/
 .config/vifm/
 .dmrc
 .config/pavucontrol.ini
