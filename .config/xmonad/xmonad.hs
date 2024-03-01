@@ -229,6 +229,7 @@ myKeys =
    -- Show Text Editors Menu
    (("M-C-e"), spawnSelected'
    [("VsCode", "code"), -- Open VsCode
+    ("Emacs", "emacs"), -- Open emacs
     ("Neovim", myTerminal ++ " -e nvim"), -- Open Neovim
     ("Vim", myTerminal ++ " -e vim")]),   -- Open vim
 
