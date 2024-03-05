@@ -2,6 +2,7 @@
 .bash*
 .cache/
 .compose-cache/
+.config/GIMP
 .gnome/
 .local/
 .mozilla/
@@ -20,6 +21,8 @@
 # Zsh things
 .zcompdump*
 .zsh_history
+.zshenv
+.profile
 
 # ???
 Downloads/
@@ -41,8 +44,13 @@ Desktop/
 .config/pavucontrol.ini
 .shell.pre-oh-my-zsh
 
+# Rust 
+.cargo/
+.rustup/
+
 # Haskell 
 .ghcup/
 .stack/
 .cabal/
+.ghc/
 .config/ghc/

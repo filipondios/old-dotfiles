@@ -24,7 +24,7 @@ conky.config = {
 	maximum_width = 600,						-- maximum width of window
 
 	--Graphical
-	border_inner_margin = 5, 					-- margin between border and text
+	border_inner_margin = 25, 					-- margin between border and text
 	border_outer_margin = 5, 					-- margin between border and edge of window
 	border_width = 0, 							  -- border width in pixels
 	default_bar_width = 260,					-- default is 0 - full width
@@ -76,6 +76,7 @@ conky.config = {
 };
 
 conky.text = [[
+
 ${alignc}${color0}${font2}Xmonad${font}${color}
 ${color1}${hr}${color}
 ${color1}[S]+[RET]${alignr}${color2}open terminal${color}
@@ -94,6 +95,7 @@ ${color1}[S]+[CTRL]+X${alignr}${color2}xmonad config menu${color}
 ${color1}${hr}${color}
 ${color1}[S]+[SHIFT]+r${alignr}${color2}restart xmonad${color}
 ${color1}[S]+[SHIFT]+q${alignr}${color2}quit xmonad${color}
+
 ]];
 
 

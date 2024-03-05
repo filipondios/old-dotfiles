@@ -225,19 +225,19 @@ myKeys =
    ("M-S-q", exitPrompt),                           -- Quit Xmonad
    ("M-q", kill1),                                  -- Kill focused window
    ("M-<Delete>", withFocused $ windows . W.sink),  -- Restart floating window
+   ("M-x", spawn "systemctl poweroff"),
   
    -- Show Text Editors Menu
    (("M-C-e"), spawnSelected'
    [("VsCode", "code"), -- Open VsCode
-    ("Emacs", "emacs"), -- Open emacs
-    ("Neovim", myTerminal ++ " -e nvim"), -- Open Neovim
-    ("Vim", myTerminal ++ " -e vim")]),   -- Open vim
+    ("Neovim", myTerminal ++ " -e nvim"),
+    ("Vim", myTerminal ++ " -e vim")]),  
 
    -- System Settings 
    (("M-C-a"), spawnSelected'
-   [("Lxappearance", "lxappearance"),   -- Open lxappearance
+   [("Lxappearance", "lxappearance"),   -- Open Gtk theming
     ("Btop", myTerminal ++ " -e btop"), -- Open btop
-    ("Arandr", "arandr"),               -- Open btoP
+    ("Arandr", "arandr"),               -- Open Screen Configuration
     ("Pavucontrol", "pavucontrol"),     -- Open audio settings
     ("Terminal", myTerminal)]),         -- Open terminal
 
@@ -250,14 +250,16 @@ myKeys =
 
    -- URLs Menu
    (("M-C-s"), spawnSelected'
-   [("GitHub", "firefox https://github.com/dpv927"), -- Open My Github
-    ("ChatGPT", "firefox https://chat.openai.com"),  -- Open ChatGPT
-    ("Youtube", "firefox https://youtube.com"),      -- Open Youtube
-    ("Reddit", "firefox https://reddit.com"),        -- Open Reddit
-    ("Arch Packages", "firefox https://archlinux.org/packages/"),   -- Search ArchLinux packages
-    ("AUR Packages", "firefox https://aur.archlinux.org/packages"), -- Search AUR packages
-    ("Arch Wiki", "firefox https://wiki.archlinux.org/"), -- ArchLinux Wiki
-    ("Chess.com", "firefox https://chess.com")]), -- Open Chess.com
+   [("GitHub", "firefox https://github.com/dpv927"),
+    ("ChatGPT", "firefox https://chat.openai.com"),  
+    ("Youtube", "firefox https://youtube.com"),       
+    ("Reddit", "firefox https://reddit.com"),        
+    ("CodeWars", "firefox https://www.codewars.com"),
+    ("Advent Of Code", "firefox https://adventofcode.com"),
+    ("Arch Packages", "firefox https://archlinux.org/packages/"),   
+    ("AUR Packages", "firefox https://aur.archlinux.org/packages"), 
+    ("Arch Wiki", "firefox https://wiki.archlinux.org/"), 
+    ("Chess.com", "firefox https://chess.com")]),
 
    -- Window Navigation
    ("M-m", windows W.focusMaster),     -- Focus master window in stack
