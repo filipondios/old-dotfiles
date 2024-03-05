@@ -1,5 +1,5 @@
-# Net/ThemeName "Arc-Dark"
-# Net/IconThemeName "Zafiro"
+Net/ThemeName="Material-Black-Blueberry"
+Net/IconThemeName="Material-Black-Blueberry-Suru"
 Gtk/CursorThemeName "BreezeX-Light"
 Net/EnableEventSounds "0"
 Net/EnableInputFeedbackSounds "0"
