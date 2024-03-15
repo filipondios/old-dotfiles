@@ -1,7 +1,5 @@
+require("tux.dashboard")
 require("tux.plugins")
-
--- Setup
-require'colorizer'.setup()
 
 -- Color theme
 lvim.colorscheme = "halcyon"

@@ -2,4 +2,5 @@
 size = 12
 
 [font.normal]
-family = "JetbrainsMono Nerd Font"
+# family = "JetbrainsMono Nerd Font"
+family = "Cascadia Code"

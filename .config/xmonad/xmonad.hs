@@ -62,12 +62,12 @@ import XMonad.Layout.Accordion
 myFont        = "Ubuntu Bold 24"
 myTerminal    = "alacritty"
 myTextEditor  = "nvim"
-myBorderWidth = 3
+myBorderWidth = 5
 myModMask     = mod4Mask
 
 -- Window Border Colors
-focusedColor  = "#212335"
-inactiveColor = "#212335"
+focusedColor  = "#14171c"
+inactiveColor = "#14171c"
 
 -- Xmobar Module Colors
 currentWorkspaceColor = "#a385dc"
@@ -150,7 +150,7 @@ myStartupHook = do
   spawn "killall xsettingsd"
   spawn "~/.fehbg"
   spawnOnce "xrdb merge /home/tux/.Xresources"
-  spawnOnce "conky -c /home/tux/.config/conky/conkyrc &"
+  -- spawnOnce "conky -c /home/tux/.config/conky/conkyrc &"
   spawnOnce "xsettingsd --config=/home/tux/.config/xsettingsd &"
   spawnOnce "picom &"
   setWMName "LG3D"
@@ -233,12 +233,14 @@ myKeys =
     ("Neovim", myTerminal ++ " -e nvim"),
     ("Vim", myTerminal ++ " -e vim")]),  
 
-   -- System Settings 
+   -- System Programs 
    (("M-C-a"), spawnSelected'
    [("Lxappearance", "lxappearance"),   -- Open Gtk theming
     ("Btop", myTerminal ++ " -e btop"), -- Open btop
     ("Arandr", "arandr"),               -- Open Screen Configuration
     ("Pavucontrol", "pavucontrol"),     -- Open audio settings
+    ("Firefox", "firefox"),
+    ("Gimp", "gimp"),
     ("Terminal", myTerminal)]),         -- Open terminal
 
    -- Xmonad Config 
