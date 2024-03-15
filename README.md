@@ -12,6 +12,6 @@
 - Web browser: [firefox](https://www.mozilla.org/es-ES/firefox/new/)
 
 ## GTK Theming 
-- Widget Theme: [Material Black Blueberry](https://www.gnome-look.org/p/1316887/)
-- Icon Theme: [Material Black Blueberry](https://www.gnome-look.org/p/1333360)
+- Widget Theme: [Orchis](https://www.gnome-look.org/p/1357889)
+- Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
 - Cursor Theme: [BreezeX Light](https://github.com/ful1e5/BreezeX_Cursor/releases/)
