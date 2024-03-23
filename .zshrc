@@ -9,7 +9,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-alias ls='lsd'
+alias ls='lsd --group-directories-first'
 alias la='lsd -a'
 alias ll='lsd -l'
 alias nvim='lvim'

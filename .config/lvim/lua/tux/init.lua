@@ -2,7 +2,28 @@ require("tux.dashboard")
 require("tux.plugins")
 
 -- Color theme
-lvim.colorscheme = "halcyon"
+-- local c = require('vscode.colors').get_colors()
+-- require('vscode').setup({
+    -- Alternatively set style in setup
+    -- style = 'light'
+
+    -- Enable transparent background
+    -- transparent = true,
+
+    -- Enable italic comment
+    -- italic_comments = false,
+
+    -- Underline `@markup.link.*` variants
+    -- underline_links = true,
+
+    -- Disable nvim-tree background color
+    -- disable_nvimtree_bg = false,
+-- })
+-- require('vscode').load()
+
+-- lvim.colorscheme = "halcyon"
+-- lvim.colorscheme = "vscode"
+lvim.colorscheme = "gruvbox"
 
 -- Settings
 vim.opt.nu = true
