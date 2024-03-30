@@ -1,5 +1,7 @@
 # Dotfiles
 
+<img src="Pictures/preview.png">
+
 ## System Info
 - OS: [Arch Linux](https://archlinux.org/)
 - WMs: [i3](https://i3wm.org/), [Xmonad](https://xmonad.org/)
