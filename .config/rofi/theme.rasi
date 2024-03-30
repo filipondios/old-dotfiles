@@ -1,0 +1,115 @@
+@import "fonts.rasi"
+@import "colors.rasi"
+
+window {
+  location: west;
+  anchor: west;
+  width: 25%;
+  height: 100%;
+  transparency: "real";
+  background-color: #181a1b;
+  text-color: #97a4a0;
+  padding: 20px 25px 20px 25px;
+  border: 0px 0px 0px 0px;
+  border-color: #285577;
+}
+
+inputbar {
+  background-color: #222222;
+  text-color: #868686;
+  padding: 15px;
+  children: [ "prompt","textbox-prompt-colon","entry"];
+}
+
+prompt {
+  background-color: #222222;
+  text-color: #00fb00;
+}
+
+textbox-prompt-colon {
+  background-color: #222222;
+  margin:     0px 4px 0px 0px ;
+  expand:     false;
+  str:        ":";
+  text-color: #00fb00;
+}
+
+mainbox {
+  background-color: #222222;
+  children: ["inputbar", "listview", "mode-switcher"];
+}
+
+entry {
+  background-color:  #222222;
+  text-color:        #878787;
+  cursor:            text;
+  spacing:           0;
+  placeholder-color: Gray;
+  placeholder:       "Type to filter";
+  margin-bottom: 10px;
+}
+
+listview {
+  background-color: #181a1b;
+  padding: 6px;
+  columns: 1;
+  spacing: 10px;
+  lines: 15;
+}
+
+element-text {
+  background-color: transparent;
+  cursor:           inherit;
+  highlight:        inherit;
+  text-color:       inherit;
+  padding: 5px 5px;
+}
+
+element normal.normal {
+  background-color: #181a1b;
+  text-color: #858585;
+}
+
+element normal.active {
+  background-color: #181a1b;
+  text-color: #858585;
+}
+
+element alternate.normal {
+  background-color: #181a1b;
+  text-color: #858585;
+}
+
+element alternate.normal {
+  background-color: #181a1b;
+  text-color: #858585;
+}
+
+element selected.normal {
+  background-color: #285577;
+  text-color: #fcfcfd;
+}
+
+mode-switcher{
+  enabled:                     true;
+  spacing:                     1px;
+  margin:                      0px;
+  padding:                     0px;
+  border:                      0px solid;
+  border-radius:               0px;
+  background-color:            #181a1b;
+  text-color:                  #ffffff;
+}
+
+button {
+  padding:                     5px 10px;
+  border:                      5px solid;
+  background-color:            #222222;
+  text-color:                  inherit;
+  cursor:                      pointer;
+}
+
+button selected {
+  background-color: #285577;
+  text-color: #fcfcfd;
+}
