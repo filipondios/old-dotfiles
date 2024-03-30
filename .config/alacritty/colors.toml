@@ -49,9 +49,10 @@ white = "#97a4a0"
 yellow = "#ecd3a0"
 
 [colors.primary]
-# background = "#14171c"
+background = "#181a1b"
+#background = "#14171c"
 #background = "#21242c"
-background = "#282828"
+#background = "#282828"
 foreground = "#a2b5ce"
 
 [env]

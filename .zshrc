@@ -3,8 +3,8 @@ export ZSH="$HOME/.oh-my-zsh"
 PATH="$PATH:/home/tux/.local/bin/"
 source "$HOME/.cargo/env"
 
-# Zsh Things
-ZSH_THEME="cypher"
+# Prompt
+PROMPT="%F{1}%n%F{reset}@%m%f %~ "
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 

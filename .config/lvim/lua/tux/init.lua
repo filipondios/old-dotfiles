@@ -1,29 +1,24 @@
 require("tux.dashboard")
 require("tux.plugins")
 
--- Color theme
--- local c = require('vscode.colors').get_colors()
--- require('vscode').setup({
-    -- Alternatively set style in setup
-    -- style = 'light'
+require("astrotheme").setup({
+  palette = "astrodark",
 
-    -- Enable transparent background
-    -- transparent = true,
-
-    -- Enable italic comment
-    -- italic_comments = false,
-
-    -- Underline `@markup.link.*` variants
-    -- underline_links = true,
-
-    -- Disable nvim-tree background color
-    -- disable_nvimtree_bg = false,
--- })
--- require('vscode').load()
+  style = {
+    transparent = true,
+    border = false,
+    italic_comments = false
+  }
+});
 
 -- lvim.colorscheme = "halcyon"
 -- lvim.colorscheme = "vscode"
-lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "gruvbox"
+-- lvim.colorscheme = "onedark"
+lvim.colorscheme = "astrotheme"
+-- lvim.colorscheme = "moonfly"
+-- lvim.colorscheme = "aquarium"
+-- lvim.colorscheme = "bubblegum-256-dark"
 
 -- Settings
 vim.opt.nu = true
