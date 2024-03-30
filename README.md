@@ -25,7 +25,7 @@
 - System information: [neofetch](https://archlinux.org/packages/extra/any/neofetch/)
 - System monitor: [btop](https://archlinux.org/packages/extra/x86_64/btop/)
 - Screenshots: [flameshot](https://archlinux.org/packages/extra/x86_64/flameshot/)
-- Fancy ls command ls: [lsd](https://archlinux.org/packages/extra/x86_64/lsd/)
+- Fancy ls command: [lsd](https://archlinux.org/packages/extra/x86_64/lsd/)
 - Desktop color picker: [xcolor](https://archlinux.org/packages/extra/x86_64/xcolor/)
 
 ### Keybindigs
