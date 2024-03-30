@@ -1,0 +1,59 @@
+#!/usr/bin/bash
+
+# options
+shutdown='Shutdown'
+reboot='Reboot'
+suspend='Suspend'
+logout='Log Out'
+close='Close menu'
+
+# rofi cmd
+rofi_cmd() {
+	rofi -dmenu -p "Power"
+}
+
+# pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$suspend\n$logout\n$reboot\n$shutdown\n$close" | rofi_cmd
+}
+
+option_poweroff() {
+  if command -v systemctl &>/dev/null; then
+    systemctl poweroff
+  elif command -v loginctl &>/dev/null; then
+    loginctl poweroff
+  elif command -v shutdown &>/dev/null; then
+    shutdown now
+  else
+    poweroff
+  fi
+}
+
+option_reboot() {
+  if command -v systemctl &>/dev/null; then
+	systemctl reboot
+  elif command -v loginctl &>/dev/null; then
+    loginctl reboot
+  elif command -v shutdown &>/dev/null; then
+    shutdown -r now
+  else
+    reboot
+  fi
+}
+
+option_suspend() {
+  if command -v systemctl &>/dev/null; then
+		systemctl suspend
+  elif command -v loginctl &>/dev/null; then
+    loginctl suspend
+  fi
+}
+
+# run
+chosen="$(run_rofi)"
+case "$chosen" in
+    "$shutdown") option_poweroff ;;
+    "$reboot") option_reboot ;;
+    "$suspend") option_suspend ;;
+    "$logout") killall i3 ;;
+esac
