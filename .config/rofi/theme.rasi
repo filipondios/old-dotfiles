@@ -1,5 +1,4 @@
 @import "fonts.rasi"
-@import "colors.rasi"
 
 window {
   location: west;
