@@ -1,9 +1,8 @@
-# xmonad
-<img src="Pictures/demo.gif">
+# Dotfiles
 
 ## System Info
 - OS: [Arch Linux](https://archlinux.org/)
-- WM: [Xmonad](https://xmonad.org/)
+- WMs: [i3](https://i3wm.org/), [Xmonad](https://xmonad.org/)
 - Terminal: [alacritty](https://alacritty.org/)
 - Shell: [zsh](https://www.zsh.org)
 - Editor: [lunarvim](https://www.lunarvim.org/es/)
