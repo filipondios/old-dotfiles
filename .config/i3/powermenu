@@ -19,11 +19,11 @@ run_rofi() {
 
 option_poweroff() {
   if command -v systemctl &>/dev/null; then
-    systemctl poweroff
+    sudo systemctl poweroff
   elif command -v loginctl &>/dev/null; then
-    loginctl poweroff
+    sudo loginctl poweroff
   elif command -v shutdown &>/dev/null; then
-    shutdown now
+    sudo shutdown now
   else
     poweroff
   fi
@@ -31,21 +31,21 @@ option_poweroff() {
 
 option_reboot() {
   if command -v systemctl &>/dev/null; then
-	systemctl reboot
+	  sudo systemctl reboot
   elif command -v loginctl &>/dev/null; then
-    loginctl reboot
+    sudo loginctl reboot
   elif command -v shutdown &>/dev/null; then
-    shutdown -r now
+    sudo shutdown -r now
   else
-    reboot
+    sudo reboot
   fi
 }
 
 option_suspend() {
   if command -v systemctl &>/dev/null; then
-		systemctl suspend
+		sudo systemctl suspend
   elif command -v loginctl &>/dev/null; then
-    loginctl suspend
+    sudo loginctl suspend
   fi
 }
 
