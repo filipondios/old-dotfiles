@@ -7,7 +7,6 @@
 .local/
 .mozilla/
 .npm/
-.oh-my-zsh/
 .wget-hsts
 
 # Nix things
@@ -15,7 +14,6 @@
 .nix-profile 
 
 # X Session things
-.Xauthority
 .xsession-errors*
 
 # Zsh things
@@ -39,7 +37,6 @@ Desktop/
 .config/pulse/
 .config/dconf/
 .config/vifm/
-.config/gtk-2.0/
 .dmrc
 .config/pavucontrol.ini
 .shell.pre-oh-my-zsh
