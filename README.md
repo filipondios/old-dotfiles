@@ -63,7 +63,3 @@ and then, change the next line of the sudoers file with the command `visudo`:
 
 Now you should be able to do `sudo systemctl shutdown/hibernate/...` without needing
 and password.
-
-
-
-https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Mononoki.zip
