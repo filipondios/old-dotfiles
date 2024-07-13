@@ -42,24 +42,3 @@ Generic keybindings for all window managers:
 | Win + Shift + s      | Take a screenshot                 |
 | Win + Shift + r      | Restart window manager            |
 | Win + Shift + q      | Kill/quit window manager          |
- 
-# Other settings
-
-If you need a password to shutdown, reboot, etc, you might need to add your user
-to the `power` group. This will be helpull if you try to choose any of the options
-of the rofi-powermenu and nothing happens.
-
-```bash
-sudo gpasswd -a $(whoami) power
-```
-
-If that does not work and you use `sudo`, try to add your user to the `wheel` group, 
-and then, change the next line of the sudoers file with the command `visudo`:
-
-```bash
-# Uncomment this line
-%wheel ALL=(ALL:ALL) NOPASSWD: ALL
-```
-
-Now you should be able to do `sudo systemctl shutdown/hibernate/...` without needing
-and password.
