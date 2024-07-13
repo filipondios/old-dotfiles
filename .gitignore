@@ -1,17 +1,9 @@
 # Something
 .cache/
 .gnupg/
-.compose-cache/
-.config/GIMP
-.gnome/
 .local/
 .mozilla/
-.npm/
 .wget-hsts
-
-# Nix things
-.nix-defexpr/
-.nix-profile 
 
 # X Session things
 .Xauthority
@@ -34,16 +26,12 @@ Pictures/
 .git-credentials
 .gitconfig
 
-# Noconf
-.config/QtProject.conf
+# Not config
 .config/flameshot/
 .config/menus/
 .config/pulse/
 .config/dconf/
-.config/vifm/
-.dmrc
 .config/pavucontrol.ini
-.shell.pre-oh-my-zsh
 
 # Rust 
 .cargo/
