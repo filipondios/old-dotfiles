@@ -2,17 +2,21 @@
 
 lvim.plugins = {
   -- Color Themes
-  {'morhetz/gruvbox'},
-  {'Mofiqul/vscode.nvim'},
+  -- {'vim-scripts/blackboard.vim'},
+  -- {'morhetz/gruvbox'},
+  -- {'Mofiqul/vscode.nvim'},
   -- {'joshdick/onedark.vim'},
-  {'kwsp/halcyon-neovim'},
-  {'navarasu/onedark.nvim'},
+  -- {'kwsp/halcyon-neovim'},
+  -- {'navarasu/onedark.nvim'},
   {'AstroNvim/astrotheme'},
-  {'baskerville/bubblegum'},
-  {'frenzyexists/aquarium-vim'},
+  -- {'baskerville/bubblegum'},
+  -- {'frenzyexists/aquarium-vim'},
   -- {'bluz71/vim-moonfly-colors'},
-  {'frenzyexists/aquarium-vim'},
-
-  -- Others
-  {'norcalli/nvim-colorizer.lua'},
+  -- {'frenzyexists/aquarium-vim'},
+  -- {'ramojus/mellifluous.nvim'},
+  -- {"NTBBloodbath/doom-one.nvim"},
+  -- {"rafamadriz/neon"},
+  -- {"hachy/eva01.vim"},
+  -- {"typicode/bg.nvim"},
+  -- {"projekt0n/github-nvim-theme"},
 }

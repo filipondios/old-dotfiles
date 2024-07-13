@@ -1,6 +1,6 @@
 # Something
-.bash*
 .cache/
+.gnupg/
 .compose-cache/
 .config/GIMP
 .gnome/
@@ -14,6 +14,7 @@
 .nix-profile 
 
 # X Session things
+.Xauthority
 .xsession-errors*
 
 # Zsh things
@@ -21,10 +22,13 @@
 .zsh_history
 .zshenv
 .profile
+.oh-my-zsh/
 
 # ???
 Downloads/
 Desktop/
+Documents/
+Pictures/
 
 # Git
 .git-credentials

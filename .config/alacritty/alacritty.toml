@@ -1,5 +1,6 @@
-import = ["/home/tux/.config/alacritty/colors-material.toml"]
-live_config_reload = true
+import = ["~/.config/alacritty/colors.toml"]
+
+live_config_reload = false
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -11,14 +12,14 @@ style = "Block"
 TERM = "xterm-256color"
 
 [font]
-size = 14
+size = 15
 
 [font.bold]
-family = "Iosevka Nerd Font Mono"
+family = "Terminess Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Iosevka NF"
+family = "Terminess Nerd Font"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -26,11 +27,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Iosevka NF"
+family = "Terminess Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Iosevka Nerd Font Mono"
+family = "Terminess Nerd Font"
 style = "Regular"
 
 [mouse]
@@ -51,5 +52,5 @@ program = "/usr/bin/zsh"
 opacity = 1
 
 [window.padding]
-x = 30
+x = 20
 y = 20
