@@ -4,6 +4,7 @@
 .local/
 .mozilla/
 .wget-hsts
+.icons/
 
 # X Session things
 .Xauthority

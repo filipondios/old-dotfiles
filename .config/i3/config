@@ -1,3 +1,7 @@
+# Autostart
+exec xsetroot -cursor_name left_ptr
+exec xrdb merge /home/tux/.Xresources
+
 # Basic
 set $mod Mod4
 font pango:monospace 13
