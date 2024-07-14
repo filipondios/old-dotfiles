@@ -1,56 +1,41 @@
-import = ["~/.config/alacritty/colors.toml"]
-
-live_config_reload = false
-
-[colors]
-draw_bold_text_with_bright_colors = true
-
-[cursor]
-style = "Block"
-
-[env]
-TERM = "xterm-256color"
+[window]
+padding.x = 20
+padding.y = 20
 
 [font]
+normal.family = "Terminess Nerd Font"
 size = 15
+glyph_offset.x = 0
+glyph_offset.y = 0
 
-[font.bold]
-family = "Terminess Nerd Font"
-style = "Bold"
+[colors]
+primary.background = "#101012"
+primary.foreground = "#bfc9db"
+cursor.text = "CellForeground"
+cursor.cursor = "#bfc9db"
 
-[font.bold_italic]
-family = "Terminess Nerd Font"
-style = "Bold Italic"
+[colors.normal]
+black = "#646a73"
+blue = "#8AB4F8"
+cyan = "#03dac6"
+green = "#a5d6a7"
+magenta = "#bb86fc"
+red = "#cf6679"
+white = "#ffffff"
+yellow = "#fff59d"
 
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.italic]
-family = "Terminess Nerd Font"
-style = "Italic"
-
-[font.normal]
-family = "Terminess Nerd Font"
-style = "Regular"
-
-[mouse]
-hide_when_typing = true
-
-[scrolling]
-history = 10000
-multiplier = 3
+[colors.bright]
+black = "#646a73"
+blue = "#8AB4F8"
+cyan = "#03dac6"
+green = "#a5d6a7"
+magenta = "#bb86fc"
+red = "#cf6679"
+white = "#858893"
+yellow = "#ffecb3"
 
 [selection]
 save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
-[shell]
-program = "/usr/bin/zsh"
-
-[window]
-opacity = 1
-
-[window.padding]
-x = 20
-y = 20
+[mouse]
+hide_when_typing = true
