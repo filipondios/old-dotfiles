@@ -13,7 +13,7 @@
 ## GTK Theming 
 - Widget Theme: [Orchis](https://www.gnome-look.org/p/1357889)
 - Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
-- Cursor Theme: [BreezeX Light](https://github.com/ful1e5/BreezeX_Cursor/releases/)
+- Cursor Theme: [Capitaine Cursors](https://www.gnome-look.org/p/1148692)
 
 ## Considerations
 
