@@ -1,6 +1,8 @@
 # Autostart
-exec xsetroot -cursor_name left_ptr
-exec xrdb merge /home/tux/.Xresources
+exec --no-startup-id killall -9 xsettingsd
+exec --no-startup-id xsettingsd --config=/home/tux/.config/xsettingsd &
+exec --no-startup-id xsetroot -cursor_name left_ptr
+exec --no-startup-id xrdb merge /home/tux/.Xresources
 
 # Basic
 set $mod Mod4
