@@ -6,7 +6,7 @@ exec --no-startup-id xrdb merge /home/tux/.Xresources
 
 # Basic
 set $mod Mod4
-font pango:monospace 13
+font pango:Terminess Nerd Font 13
 floating_modifier $mod
 
 # Use pactl to adjust volume in PulseAudio.
