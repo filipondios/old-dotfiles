@@ -13,7 +13,7 @@
 ## GTK Theming 
 - Widget Theme: [Orchis](https://www.gnome-look.org/p/1357889)
 - Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
-- Cursor Theme: [BreezeX Light](https://github.com/ful1e5/BreezeX_Cursor/releases/)
+- Cursor Theme: [Capitaine Cursors](https://www.gnome-look.org/p/1148692)
 
 ## Considerations
 
@@ -26,17 +26,21 @@
 - Fancy ls command: [lsd](https://archlinux.org/packages/extra/x86_64/lsd/)
 - Desktop color picker: [xcolor](https://archlinux.org/packages/extra/x86_64/xcolor/)
 
-### Keybindigs
+## Keybindigs
 
 Generic keybindings for all window managers:
 
-| Keys                 | Action                            |
-|----------------------|-----------------------------------|
-| Win + q              | Close focused window              |
-| Win + d              | Open application launcher         |
-| Win + x              | Open power menu                   | 
-| Win + [1-..]         | Switch to workspace N[1-..]       |
-| Win + Shift + [1-..] | Send Window to workspace N[1-..]  |
-| Win + Shift + s      | Take a screenshot                 |
-| Win + Shift + r      | Restart window manager            |
-| Win + Shift + q      | Kill/quit window manager          |
+| Keys                       | Action                                 |
+|-----------------------------|---------------------------------------|
+| `Win` + `Return`            | Open terminal                         |
+| `Win` + `q`                 | Close focused window                  |
+| `Win` + `d`                 | Open application launcher             |
+| `Win` + `[1..5]`            | Switch to workspace `1..5`            |
+| `Win` + `Shift` + `[1..5]`  | Send Window to workspace `1..5`       |
+| `Win` + `i`                 | Increase focused window size          |
+| `Win` + `j`                 | Decrease focused window size          |
+| `Win` + `Shift` + `[arrow]` | Move window inside a workspace        |
+| `Win` + `f`                 | Set focused window to fullscreen mode |
+| `Win` + `Shift` + `s`       | Take a screenshot                     |
+| `Win` + `Shift` + `r`       | Restart window manager                |
+| `Win` + `Shift` + `q`       | Kill/quit window manager              |
