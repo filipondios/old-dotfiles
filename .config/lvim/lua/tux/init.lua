@@ -1,6 +1,9 @@
 require("tux.dashboard")
 require("tux.plugins")
+require("tux.mappings")
 
+-- Color scheme
+lvim.colorscheme = "astrotheme"
 require("astrotheme").setup({
   palette = "astrodark",
   style = {
@@ -9,20 +12,6 @@ require("astrotheme").setup({
      italic_comments = false
    }
 });
-
--- Default options
--- require('github-theme').setup({
---  options = {
---    transparent = true,
---    terminal_colors = true
---}})
-
--- lvim.colorscheme = "halcyon"
--- lvim.colorscheme = "vscode"
--- lvim.colorscheme = "onedark"
-lvim.colorscheme = "astrotheme"
--- lvim.colorscheme = "github_dark_tritanopia"
--- lvim.colorscheme = "desert"
 
 -- Settings
 vim.opt.formatoptions:append('t')
