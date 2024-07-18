@@ -14,7 +14,7 @@ alias ll="eza --icons --group-directories-first -al"
 alias tree="eza --icons -T"
 alias treel="eza --icons -T -L"
 alias grep="grep --color=auto"
-alias nvim="lvim"
+#alias nvim="lvim"
 
 # Plugins
 plugins=(git)
