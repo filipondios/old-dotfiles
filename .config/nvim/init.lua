@@ -4,6 +4,8 @@ require('core.mappings')
 -- Settings
 local set = vim.opt
 set.autoindent = true
+set.backup = false
+set.clipboard = 'unnamedplus'
 set.cursorline = true
 set.autowrite = true
 set.tabstop = 2
@@ -20,6 +22,7 @@ set.swapfile = false
 set.ignorecase = true
 set.smartcase = true
 set.linebreak = true
+set.numberwidth = 4
 
 -- Add a highlight to the current cursor line
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {

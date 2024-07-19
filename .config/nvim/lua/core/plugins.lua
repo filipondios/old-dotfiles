@@ -61,7 +61,6 @@ return require('packer').startup(function(use)
 
   -- LSP config
   use({ 'neovim/nvim-lspconfig',
-    -- event = { 'BufReadPre', 'BufNewFile' },
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'antosha417/nvim-lsp-file-operations',

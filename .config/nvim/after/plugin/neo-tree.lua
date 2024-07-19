@@ -1,12 +1,18 @@
-require("neo-tree").setup({
-  close_if_last_window = false,
+local status_ok, neotree = pcall(require, "neo-tree")
+if not status_ok then
+  return
+end
+
+neotree.setup({
+  close_if_last_window = true,
   enable_git_status = true,
   enable_diagnostics = false,
+
   indent = {
     indent_size = 2,
     padding = 0
   },
-  
+
   file_size = { enabled = false },
   last_modified = { enabled = false },
   created = { enabled = false },
@@ -16,7 +22,7 @@ require("neo-tree").setup({
     max_folder_discovery = 300,
     exclude = {},
   },
-  
+
   window = {
     position = "left",
     width = 30,
@@ -31,6 +37,12 @@ require("neo-tree").setup({
     cygwin_support = false,
   },
 
+  sort = {
+    sorter = "name",
+    folders_first = true,
+    files_first = false,
+  },
+
   renderer = {
     add_trailing = false,
     group_empty = false,
@@ -43,9 +55,11 @@ require("neo-tree").setup({
     highlight_modified = "none",
     highlight_bookmarks = "none",
     highlight_clipboard = "name",
+
     indent_markers = {
       enable = false,
       inline_arrows = true,
+
       icons = {
         corner = "└",
         edge = "│",
