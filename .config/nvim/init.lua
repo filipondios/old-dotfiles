@@ -1,4 +1,5 @@
 require('core.plugins')
+require('core.mappings')
 
 -- Settings
 local set = vim.opt
@@ -13,5 +14,15 @@ set.ruler = true
 set.smartindent = true
 set.termguicolors = true
 set.number = true
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+set.history = 1000
+set.cursorline = true
+set.swapfile = false
+set.ignorecase = true
+set.smartcase = true
+set.linebreak = true
+
+-- Add a highlight to the current cursor line
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  command = 'highlight link CursorLine CursorColumn',
+  pattern = { '*' },
+})

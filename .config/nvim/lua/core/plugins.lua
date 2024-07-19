@@ -13,10 +13,15 @@ return require('packer').startup(function(use)
   use { 'wbthomason/packer.nvim' }
   -- Plugins are defined here
   use { 'AstroNvim/astrotheme' }
-  use { 'akinsho/bufferline.nvim', tag = '*', requires = 'nvim-tree/nvim-web-devicons' }
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
   use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }}
-  use { 'lewis6991/gitsigns.nvim', }
-  use { 'goolord/alpha-nvim', requires = { 'nvim-tree/nvim-web-devicons', 'nvim-lua/plenary.nvim' }}
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'goolord/alpha-nvim' }
+  use { 'nvim-neo-tree/neo-tree.nvim', branch = 'v3.x', requires = { 'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons', 'MunifTanjim/nui.nvim' }}
+  use { 'nvim-treesitter/nvim-treesitter' }
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
+  use { 'neovim/nvim-lspconfig' }
 
   if ensure_packer() then
     require('packer').sync()

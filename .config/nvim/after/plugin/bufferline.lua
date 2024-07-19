@@ -1,8 +1,4 @@
--- Bufferline plugin configuration
--- Adds 'tabs' at the top of the window, showing the 
--- open buffers.
-local bufferline = require("bufferline")
-bufferline.setup {
+require("bufferline").setup ({
   options = {
     color_icons = true,
     show_buffer_icons = true,
@@ -12,4 +8,4 @@ bufferline.setup {
     always_show_bufferline = true,
     hover = { enabled = false }
   }
-}
+})
