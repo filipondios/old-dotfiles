@@ -42,5 +42,6 @@ Generic keybindings for all window managers:
 | `Win` + `Shift` + `[arrow]` | Move window inside a workspace        |
 | `Win` + `f`                 | Set focused window to fullscreen mode |
 | `Win` + `Shift` + `s`       | Take a screenshot                     |
+| `Win` + `Shift` + `p`       | Start color desktop picker
 | `Win` + `Shift` + `r`       | Restart window manager                |
 | `Win` + `Shift` + `q`       | Kill/quit window manager              |
