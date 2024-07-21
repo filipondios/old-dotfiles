@@ -1,45 +1,45 @@
 # Autostart
-exec --no-startup-id killall -9 xsettingsd
-exec --no-startup-id xsettingsd --config=/home/tux/.config/xsettingsd &
-exec --no-startup-id xsetroot -cursor_name left_ptr
-exec --no-startup-id xrdb merge /home/tux/.Xresources
+exec --no-startup-id "killall -9 xsettingsd"
+exec --no-startup-id "xsettingsd --config=/home/tux/.config/xsettingsd &"
+exec --no-startup-id "xsetroot -cursor_name left_ptr"
+exec --no-startup-id "xrdb merge /home/tux/.Xresources"
 
 # Basic
 set $mod Mod4
 font pango:Terminess Nerd Font 13
 floating_modifier $mod
 
+# No title bar
+default_border pixel 2
+default_floating_border pixel 2
+
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+bindsym XF86AudioMicMute     exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
 # Basic Keys
-bindsym $mod+Return exec alacritty
-bindsym $mod+q kill
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+Shift+s exec flameshot gui
+bindsym $mod+Return            exec "alacritty"
+bindsym $mod+q                 kill
+bindsym $mod+d                 exec --no-startup-id "dmenu_run"
+bindsym $mod+Shift+s           exec --no-startup-id "flameshot gui"
+bindsym --release $mod+Shift+p exec --no-startup-id "xcolor | tr -d '\n' | xclip -selection clipboard"
 
 # Change window focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # Move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
-# Change container layout
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
-
 # Toggle window modes
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f     fullscreen toggle
 bindsym $mod+space floating toggle
 
 # Workspaces
@@ -66,7 +66,7 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 # Restart i3 || Exit i3 
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "killall i3"
-bindsym $mod+r mode "resize"
+bindsym $mod+r       mode 'resize'
 
 # Resize windows
 bindsym $mod+j resize shrink width 30 px 
