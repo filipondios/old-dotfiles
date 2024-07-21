@@ -2,13 +2,12 @@
 
 ## System Info
 - OS: [Arch Linux](https://archlinux.org/)
-- WMs: [i3](https://i3wm.org/), [Xmonad](https://xmonad.org/)
-- Terminal: [alacritty](https://alacritty.org/)
-- Shell: [zsh](https://www.zsh.org)
-- Editor: [lunarvim](https://www.lunarvim.org/es/)
+- WMs: [i3](https://archlinux.org/packages/extra/x86_64/i3-wm/), [Xmonad](https://archlinux.org/packages/extra/x86_64/xmonad/)
+- Terminal: [alacritty](https://archlinux.org/packages/extra/x86_64/alacritty/)
+- Shell: [zsh](https://archlinux.org/packages/extra/x86_64/zsh/)
+- Editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
 - Desktop panel: [conky](https://github.com/brndnmtthws/conky)
-- Compositor: [picom](https://github.com/yshui/picom)
-- Web browser: [firefox](https://www.mozilla.org/es-ES/firefox/new/)
+- Web browser: [firefox](https://archlinux.org/packages/extra/x86_64/firefox/)
 
 ## GTK Theming 
 - Widget Theme: [Orchis](https://www.gnome-look.org/p/1357889)
@@ -20,7 +19,7 @@
 ### Other programs (optional)
 
 - Image viewer/wallpaper manager: [feh](https://archlinux.org/packages/extra/x86_64/feh/)
-- System information: [neofetch](https://archlinux.org/packages/extra/any/neofetch/)
+- System information: [pfetch](https://aur.archlinux.org/packages/pfetch)
 - System monitor: [btop](https://archlinux.org/packages/extra/x86_64/btop/)
 - Screenshots: [flameshot](https://archlinux.org/packages/extra/x86_64/flameshot/)
 - Fancy ls command: [eza](https://archlinux.org/packages/extra/x86_64/eza/)
