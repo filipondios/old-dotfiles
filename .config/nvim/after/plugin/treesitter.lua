@@ -5,11 +5,9 @@ end
 
 treesitter.setup ({
   ensure_installed = {
-    "c",
     'lua',
-    'markdown',
     'rust',
-    'cpp'
+    'haskell'
   },
 
   autopairs = { enable = true },

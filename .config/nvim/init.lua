@@ -23,6 +23,7 @@ set.ignorecase = true
 set.smartcase = true
 set.linebreak = true
 set.numberwidth = 4
+set.wrap = false
 
 -- Add a highlight to the current cursor line
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
