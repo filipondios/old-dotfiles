@@ -1,12 +1,12 @@
 require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = { 'lua_ls', 'rust_analyzer', 'hls' },
-  automatic_installation = true
+require('mason-lspconfig').setup()
+require("mason-lspconfig").setup_handlers ({
+  function(server_name)
+    require("lspconfig")[server_name].setup {}
+  end,
 })
-
-local lspconfig = require('lspconfig')
-require('cmp_nvim_lsp')
-
-lspconfig.lua_ls.setup({})
-lspconfig.rust_analyzer.setup({})
-lspconfig.hls.setup({})
+require('lspsaga').setup({
+  lightbulb = {
+    enable = false
+  }
+})

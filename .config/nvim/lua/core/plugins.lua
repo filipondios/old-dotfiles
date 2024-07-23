@@ -17,6 +17,11 @@ return require('packer').startup(function(use)
   use({ 'goolord/alpha-nvim' })              -- Dashboard
   use({ 'nvim-treesitter/nvim-treesitter' }) -- Code color
 
+  -- LSP package manager (Mason) 
+  use({ 'williamboman/mason.nvim',
+    requires = 'williamboman/mason-lspconfig.nvim'
+  })
+
   -- Tabs for each buffer
   use({ 'akinsho/bufferline.nvim',
     tag = "*",
@@ -41,9 +46,22 @@ return require('packer').startup(function(use)
     }
   })
 
+  -- LSP config
+  use({ 'neovim/nvim-lspconfig',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'antosha417/nvim-lsp-file-operations',
+    }
+  })
+
+  -- LSP improved experience
+  use ({ 'nvimdev/lspsaga.nvim',
+    after = 'nvim-lspconfig',
+  })
+
   -- Code completion
   use({ 'hrsh7th/nvim-cmp',
-    requires = { 
+    requires = {
       'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
@@ -54,18 +72,10 @@ return require('packer').startup(function(use)
     }
   })
 
-  -- LSP package manager (Mason) 
-  use({ 'williamboman/mason.nvim',
-    requires = 'williamboman/mason-lspconfig.nvim'
-  })
-
-  -- LSP config
-  use({ 'neovim/nvim-lspconfig',
-    requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'antosha417/nvim-lsp-file-operations',
-    }
-  })
+  -- Everything finder
+  use { 'nvim-telescope/telescope.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   if ensure_packer() then
     require('packer').sync()

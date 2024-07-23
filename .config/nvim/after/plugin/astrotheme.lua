@@ -1,5 +1,9 @@
--- Astrotheme plugin configuration
-require("astrotheme").setup({
+local status_ok, astrotheme = pcall(require, "astrotheme")
+if not status_ok then
+  return
+end
+
+astrotheme.setup({
   palette = "astrodark",
   style = {
      transparent = true,
