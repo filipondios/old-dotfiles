@@ -9,9 +9,11 @@ set $mod Mod4
 font pango:Terminess Nerd Font 13
 floating_modifier $mod
 
-# No title bar
-default_border pixel 2
-default_floating_border pixel 2
+# Window Borders - (No title bar)
+default_border pixel 1
+default_floating_border pixel 1
+client.focused  #000 #000 #000 #000 #4a89b9
+
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
