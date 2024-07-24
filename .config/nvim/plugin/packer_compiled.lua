@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  astrotheme = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/astrotheme",
-    url = "https://github.com/AstroNvim/astrotheme"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -98,11 +93,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
-  },
-  ["cmp-cmdline"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -119,22 +109,30 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
+  },
+  ["express_line.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/express_line.nvim",
+    url = "https://github.com/tjdevries/express_line.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["lspsaga.nvim"] = {
-    load_after = {},
+  ["lspkind.nvim"] = {
     loaded = true,
-    needs_bufread = false,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim",
-    url = "https://github.com/nvimdev/lspsaga.nvim"
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
-  ["lualine.nvim"] = {
+  ["lspsaga.nvim"] = {
     loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/nvimdev/lspsaga.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -191,6 +189,21 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["sqlite.lua"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/sqlite.lua",
+    url = "https://github.com/kkharji/sqlite.lua"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -199,11 +212,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-lspconfig ]]
-vim.cmd [[ packadd lspsaga.nvim ]]
-time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

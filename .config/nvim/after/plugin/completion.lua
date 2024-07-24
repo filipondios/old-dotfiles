@@ -1,15 +1,10 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
+local status_ok, cmp = pcall(require, 'cmp')
+if not status_ok then
   return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
-
-require("luasnip.loaders.from_vscode")
-  .lazy_load()
+local lspkind = require('lspkind')
+lspkind.init({})
 
 -- Completion function
 local function cmp_complete()
@@ -75,41 +70,37 @@ local function cmp_format(entry, vim_item)
   return vim_item
 end
 
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end
+cmp.setup {
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "cody" },
+    { name = "path" },
+    { name = "buffer" },
   },
   mapping = {
-    ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+		['<Down>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
     ['<Up>']   = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
     ["<CR>"]   = cmp.mapping.confirm { select = true },
     ["<C-Space>"] = cmp.mapping({ i = cmp_complete, c = cmp_complete }),
-    ["<Tab>"] = cmp.mapping(cmp_tab, {'i', 'c', 's' }),
+    -- ["<Tab>"] = cmp.mapping(cmp_tab, {'i', 'c', 's' }),
+	},
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
   },
-  formatting = {
-    fields = { 'kind', 'abbr', 'menu' },
-    format = cmp_format
-  },
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
-    { name = 'spell' },
-    { name = 'tags' },
-    { name = 'treesitter' },
-  },
-  confirm_opts = {
+	confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  completion = {
+	completion = {
     completeopt = 'menu,menuone,noinsert'
   },
-  window = {
+	formatting = {
+    fields = { 'kind', 'abbr', 'menu' },
+    format = cmp_format
+  },
+	window = {
     completion = {
       border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
       side_padding = 2
@@ -119,4 +110,4 @@ cmp.setup({
       side_padding = 2,
     }
   },
-})
+}
