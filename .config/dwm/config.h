@@ -1,20 +1,15 @@
-static const unsigned int snap      = 32;
-
-// Window border propierties
 #define BORDER_NORMAL   "#222222"
 #define BORDER_SELECTED "#3f4445"
-#define WORKSPACES 4
-
-static const unsigned int borderpx  = 2;
-static const unsigned char tags = 4; // Number of workspaces
-
-static const float mfact     = 0.5f;
-static const int nmaster     = 1;
-static const int resizehints = 1;
-static const int lockfullscreen = 1;
+#define WORKSPACES    4
+#define BORDER_PIXELS 2
+#define SNAP 32
+#define MFACT 0.5f
+#define NMASTER 1
+#define RESIZE_HINTS 1
+#define LOCK_FULLSCREEN 1
 
 static const Layout layouts[] = {
-	{ "[]=",  tile },
+	{ "[]!",  tile },
 	{ "><>",  NULL },
 	{ "[M]",  monocle },
 };
