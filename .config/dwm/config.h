@@ -9,8 +9,8 @@
 
 // Layout functions definition
 static const Layout layouts[] = { 
+	tile,
 	monocle,
-	tile, 
 };
 
 #define TAGKEYS(KEY,TAG) \
