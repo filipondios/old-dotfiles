@@ -1,17 +1,18 @@
-#define BORDER_NORMAL   "#222222"
-#define BORDER_SELECTED "#3f4445"
-#define WORKSPACES    4
-#define BORDER_PIXELS 4
-#define SNAP 32
-#define MFACT 0.5f
-#define NMASTER 1
-#define LOCK_FULLSCREEN 1
+#define BORDER_NORMAL   "#222222" // Non-focused window border color
+#define BORDER_SELECTED "#3f4445" // Focused window border color
+#define BORDER_PIXELS		4					// Window border width in pixels
+#define WORKSPACES			4         // Number of virtual workspaces		
+#define MFACT						0.5f			// Screen width % of the Master area
+#define NMASTER					1					// Number of windows in the master areas
+#define LOCK_FULLSCREEN 1					// Lock fullscreen?
+#define MODKEY					Mod4Mask  // Leader key when using keybindings 
 
-static const Layout layouts[] = {
-	tile, NULL,  monocle,
+// Layout functions definition
+static const Layout layouts[] = { 
+	monocle,
+	tile, 
 };
 
-#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
