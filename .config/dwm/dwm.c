@@ -83,7 +83,7 @@ typedef union Arg Arg;
 typedef struct Monitor Monitor;
 typedef struct Client Client;
 typedef struct Key Key;
-typedef struct Layout Layout;
+typedef void (*Layout)(Monitor *);
 
 union Arg {
 	int i;
@@ -125,13 +125,7 @@ struct Key {
 	const Arg arg;
 };
 
-struct Layout {
-	const char *symbol;
-	void (*arrange)(Monitor *);
-};
-
 struct Monitor {
-	char ltsymbol[16];
 	float mfact;
 	int nmaster;
 	int num;
@@ -146,7 +140,7 @@ struct Monitor {
 	Client *sel;
 	Client *stack;
 	Monitor *next;
-	const Layout *lt[2];
+	Layout layouts[2];
 };
 
 /* function declarations */
@@ -232,9 +226,10 @@ static void zoom(const Arg *arg);
 
 /* variables */ 
 static int screen;
-static int sw, sh;           /* X display screen geometry width, height */
+static int sw, sh;  /* X display screen geometry width, height */
 static int (*xerrorxlib)(Display *, XErrorEvent *);
 static unsigned int numlockmask = 0;
+
 static void (*handler[LASTEvent]) (XEvent *) = {
 	[ClientMessage] = clientmessage,
 	[ConfigureRequest] = configurerequest,
@@ -249,7 +244,9 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 	[PropertyNotify] = propertynotify,
 	[UnmapNotify] = unmapnotify
 };
-static Atom wmatom[WMLast], netatom[NetLast];
+
+static Atom wmatom[WMLast];
+static Atom netatom[NetLast];
 static int running = 1;
 static Cur *cursor[CurLast];
 
@@ -309,7 +306,7 @@ int applysizehints(Client *client, int *x, int *y, int *w, int *h, int interact)
 	if (_h < 0)	_h = 0;
 	if (_w < 0) _w = 0;
 
-	if (RESIZE_HINTS || client->isfloating || !client->monitor->lt[client->monitor->sellt]->arrange) {
+		if (client->isfloating || !client->monitor->layouts[client->monitor->sellt]) {
 		if (!client->hintsvalid)
 			updatesizehints(client);
 
@@ -348,10 +345,8 @@ int applysizehints(Client *client, int *x, int *y, int *w, int *h, int interact)
 	return _x != client->x || _y != client->y || _w != client->w || _h != client->h;
 }
 
-void
-arrange(Monitor *m)
-{
-	if (m)
+void arrange(Monitor *m) {
+	if (m) 
 		showhide(m->stack);
 	else for (m = mons; m; m = m->next)
 		showhide(m->stack);
@@ -362,17 +357,14 @@ arrange(Monitor *m)
 		arrangemon(m);
 }
 
-void
-arrangemon(Monitor *m)
-{
-	strncpy(m->ltsymbol, m->lt[m->sellt]->symbol, sizeof m->ltsymbol);
-	if (m->lt[m->sellt]->arrange)
-		m->lt[m->sellt]->arrange(m);
+void arrangemon(Monitor *m) {
+	if (m->layouts[m->sellt]){
+		Layout layout = m->layouts[m->sellt];
+		layout(m);
+	}
 }
 
-void
-attach(Client *c)
-{
+void attach(Client *c) {
 	c->next = c->monitor->clients;
 	c->monitor->clients = c;
 }
@@ -392,12 +384,11 @@ void checkotherwm(void) {
 
 void cleanup(void) {
 	Arg a = {.ui = ~0};
-	Layout foo = { "", NULL };
 	Monitor *m;
 	size_t i;
 
 	view(&a);
-	selmon->lt[selmon->sellt] = &foo;
+	selmon->layouts[selmon->sellt] = NULL;
 	for (m = mons; m; m = m->next)
 		while (m->stack)
 			unmanage(m->stack, 0);
@@ -494,7 +485,7 @@ void configurerequest(XEvent *e) {
 	if ((c = wintoclient(ev->window))) {
 		if (ev->value_mask & CWBorderWidth)
 			c->bw = ev->border_width;
-		else if (c->isfloating || !selmon->lt[selmon->sellt]->arrange) {
+		else if (c->isfloating || !selmon->layouts[selmon->sellt]) {
 			m = c->monitor;
 			if (ev->value_mask & CWX) {
 				c->oldx = c->x;
@@ -542,9 +533,8 @@ Monitor * createmon(void) {
 	m->tagset[0] = m->tagset[1] = 1;
 	m->mfact = MFACT;
 	m->nmaster = NMASTER;
-	m->lt[0] = &layouts[0];
-	m->lt[1] = &layouts[1 % LENGTH(layouts)];
-	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
+	m->layouts[0] = layouts[0];
+	m->layouts[1] = layouts[1 % LENGTH(layouts)];
 	return m;
 }
 
@@ -870,8 +860,6 @@ monocle(Monitor *m)
 	for (c = m->clients; c; c = c->next)
 		if (ISVISIBLE(c))
 			n++;
-	if (n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
 	for (c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
 }
@@ -935,10 +923,10 @@ void movemouse(const Arg *arg) {
 				ny = selmon->wy;
 			else if (abs((selmon->wy + selmon->wh) - (ny + HEIGHT(c))) < SNAP)
 				ny = selmon->wy + selmon->wh - HEIGHT(c);
-			if (!c->isfloating && selmon->lt[selmon->sellt]->arrange
+			if (!c->isfloating && selmon->layouts[selmon->sellt]
 			&& (abs(nx - c->x) > SNAP || abs(ny - c->y) > SNAP))
 				togglefloating(NULL);
-			if (!selmon->lt[selmon->sellt]->arrange || c->isfloating)
+			if (!selmon->layouts[selmon->sellt] || c->isfloating)
 				resize(c, nx, ny, c->w, c->h, 1);
 			break;
 		}
@@ -1042,9 +1030,9 @@ void restack(Monitor *m) {
 
 	if (!m->sel)
 		return;
-	if (m->sel->isfloating || !m->lt[m->sellt]->arrange)
+	if (m->sel->isfloating || !m->layouts[m->sellt])
 		XRaiseWindow(display, m->sel->win);
-	if (m->lt[m->sellt]->arrange) {
+	if (m->layouts[m->sellt]) {
 		wc.stack_mode = Below;
 		for (c = m->stack; c; c = c->snext)
 			if (!c->isfloating && ISVISIBLE(c)) {
@@ -1176,11 +1164,10 @@ void setfullscreen(Client *c, int fullscreen) {
 void
 setlayout(const Arg *arg)
 {
-	if (!arg || !arg->v || arg->v != selmon->lt[selmon->sellt])
+	if (!arg || !arg->v || arg->v != selmon->layouts[selmon->sellt])
 		selmon->sellt ^= 1;
 	if (arg && arg->v)
-		selmon->lt[selmon->sellt] = (Layout *)arg->v;
-	strncpy(selmon->ltsymbol, selmon->lt[selmon->sellt]->symbol, sizeof selmon->ltsymbol);
+		selmon->layouts[selmon->sellt] = (Layout)arg->v;
 	if (selmon->sel)
 		arrange(selmon);
 }
@@ -1191,7 +1178,7 @@ setmfact(const Arg *arg)
 {
 	float f;
 
-	if (!arg || !selmon->lt[selmon->sellt]->arrange)
+	if (!arg || !selmon->layouts[selmon->sellt])
 		return;
 	f = arg->f < 1.0 ? arg->f + selmon->mfact : arg->f - 1.0;
 	if (f < 0.05 || f > 0.95)
@@ -1290,7 +1277,7 @@ void showhide(Client *c) {
 	if (ISVISIBLE(c)) {
 		/* show clients top down */
 		XMoveWindow(display, c->win, c->x, c->y);
-		if ((!c->monitor->lt[c->monitor->sellt]->arrange || c->isfloating) && !c->isfullscreen)
+		if ((!c->monitor->layouts[c->monitor->sellt] || c->isfloating) && !c->isfullscreen)
 			resize(c, c->x, c->y, c->w, c->h, 0);
 		showhide(c->snext);
 	} else {
@@ -1640,7 +1627,7 @@ int xerrorstart(Display *dpy, XErrorEvent *ee) {
 void zoom(const Arg *arg) {
 	Client *c = selmon->sel;
 
-	if (!selmon->lt[selmon->sellt]->arrange || !c || c->isfloating)
+	if (!selmon->layouts[selmon->sellt] || !c || c->isfloating)
 		return;
 	if (c == nexttiled(selmon->clients) && !(c = nexttiled(c->next)))
 		return;
