@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=ssdwm
+Comment=dwm made even simpler
+Exec=ssdwm
+Type=Application

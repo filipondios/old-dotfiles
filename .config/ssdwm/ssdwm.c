@@ -147,7 +147,6 @@ struct Monitor {
 static void applyrules(Client *c);
 static int applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact);
 static void arrange(Monitor *m);
-
 static void arrangemon(Monitor *m);
 static void attach(Client *c);
 static void attachstack(Client *c);
@@ -249,34 +248,20 @@ static Atom wmatom[WMLast];
 static Atom netatom[NetLast];
 static int running = 1;
 static Cur *cursor[CurLast];
-
 static Clr color_normal;
 static Clr color_selected;
-
 static Display *display;
 static Drw *drw;
-static Monitor *mons, *selmon;
-static Window root, wmcheckwin;
+static Monitor *mons; 
+static Monitor *selmon;
+static Window root; 
+static Window wmcheckwin;
 
 #include "config.h"
 
 void applyrules(Client *client) {
-	// TODO!!! Not use window titles!
-	XClassHint ch = { NULL, NULL };
-
-	/* rule matching */
 	client->isfloating = 0;
-	client->tags = 0;
-	XGetClassHint(display, client->win, &ch);
-
-	if (ch.res_class)
-		XFree(ch.res_class);
-	if (ch.res_name)
-		XFree(ch.res_name);
-
-	client->tags = (client->tags & TAGMASK)? 
-		(client->tags & TAGMASK) :
-		(client->monitor->tagset[client->monitor->seltags]);
+	client->tags = (client->monitor->tagset[client->monitor->seltags]);
 }
 
 int applysizehints(Client *client, int *x, int *y, int *w, int *h, int interact) {
@@ -1176,7 +1161,7 @@ void setup(void) {
 	XChangeProperty(display, wmcheckwin, netatom[NetWMCheck], XA_WINDOW, 32,
 		PropModeReplace, (unsigned char *) &wmcheckwin, 1);
 	XChangeProperty(display, wmcheckwin, netatom[NetWMName], utf8string, 8,
-		PropModeReplace, (unsigned char *) "dwm", 3);
+		PropModeReplace, (unsigned char *) "ssdwm", 3);
 	XChangeProperty(display, root, netatom[NetWMCheck], XA_WINDOW, 32,
 		PropModeReplace, (unsigned char *) &wmcheckwin, 1);
 	/* EWMH support per view */
@@ -1464,9 +1449,7 @@ void updatesizehints(Client *c) {
 	c->hintsvalid = 1;
 }
 
-void
-updatewindowtype(Client *c)
-{
+void updatewindowtype(Client *c) {
 	Atom state = getatomprop(c, netatom[NetWMState]);
 	Atom wtype = getatomprop(c, netatom[NetWMWindowType]);
 

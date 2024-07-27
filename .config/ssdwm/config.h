@@ -23,8 +23,8 @@ static const Layout layouts[] = {
 static const Key keys[] = {
 	{ MODKEY,												XK_d,				spawn,					SHCMD("dmenu_run") },
 	{ MODKEY,												XK_Return,	spawn,					SHCMD("alacritty") },
-	{ MODKEY|ShiftMask,							XK_j,				focusstack,			{.i = +1 } },
-	{ MODKEY|ShiftMask,							XK_k,				focusstack,			{.i = -1 } },
+	{ MODKEY,												XK_Right,		focusstack,			{.i = +1 } },
+	{ MODKEY,												XK_Left,		focusstack,			{.i = -1 } },
 	{ MODKEY,												XK_i,				incnmaster,			{.i = +1 } },
 	{ MODKEY,												XK_j,				incnmaster,			{.i = -1 } },
 	{ MODKEY,												XK_h,				setmfact,				{.f = -0.05} },
