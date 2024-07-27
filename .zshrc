@@ -22,6 +22,3 @@ ZSH_SYNTAX="zsh-syntax-highlighting"
 ZSH_AUTOSG="zsh-autosuggestions"
 source "$ZSH_PLUGINS/$ZSH_SYNTAX/$ZSH_SYNTAX.zsh"
 source "$ZSH_PLUGINS/$ZSH_AUTOSG/$ZSH_AUTOSG.zsh"
-
-# Custom start
-pfetch
