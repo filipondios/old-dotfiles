@@ -1,15 +1,19 @@
 # Autostart
+# We use the '--no-startup-id' so the cursor does not look
+# like something is loading
 exec --no-startup-id "killall -9 xsettingsd"
 exec --no-startup-id "xsettingsd --config=/home/tux/.config/xsettingsd &"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
 exec --no-startup-id "xrdb merge /home/tux/.Xresources"
 
-# Basic
-set $mod Mod4
-font pango:Terminess Nerd Font 13
+# Set the leader key as the Win key.
+# The leader key is the fist key to press when
+# trying to execute a keybinding
+set $mod Mod4	
 floating_modifier $mod
 
-# Window Borders - (No title bar)
+# Window decorarions configuration
+# No title bar.
 default_border pixel 3
 default_floating_border pixel 3
 client.focused  #000 #000 #000 #000 #3f4445
@@ -20,7 +24,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAUL
 bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 bindsym XF86AudioMicMute     exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
-# Basic Keys
+# Basic system keys
 bindsym $mod+Return            exec "alacritty"
 bindsym $mod+q                 kill
 bindsym $mod+d                 exec --no-startup-id "dmenu_run"
