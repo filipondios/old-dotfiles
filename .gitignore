@@ -44,3 +44,10 @@ Pictures/
 .cabal/
 .ghc/
 .config/ghc/
+
+# Zig 
+.zig-*/
+
+# Vim 
+.viminfo
+.vim/

@@ -1,11 +1,10 @@
 [[ $- != *i* ]] && return
 
 # Enviroment variables & zsh
-PATH="$PATH:$HOME/.local/bin/"
+PATH="$PATH:$HOME/.local/bin/:$HOME/.zig-0.14.0/"
 ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="af-magic"
 source $ZSH/oh-my-zsh.sh
-[ -f "/home/tux/.ghcup/env" ] && . "/home/tux/.ghcup/env"
 
 # Aliases definition
 alias ls="eza --icons --group-directories-first"
@@ -22,3 +21,5 @@ ZSH_SYNTAX="zsh-syntax-highlighting"
 ZSH_AUTOSG="zsh-autosuggestions"
 source "$ZSH_PLUGINS/$ZSH_SYNTAX/$ZSH_SYNTAX.zsh"
 source "$ZSH_PLUGINS/$ZSH_AUTOSG/$ZSH_AUTOSG.zsh"
+
+[ -f "/home/tux/.ghcup/env" ] && . "/home/tux/.ghcup/env" # ghcup-env
