@@ -1,6 +1,0 @@
-# Ignore build files
-./xmonad.o
-./xmonad.hi
-*.o
-*.hi
-.stack-work/
