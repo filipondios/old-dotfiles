@@ -16,6 +16,8 @@ return require('packer').startup(function(use)
   use({ 'goolord/alpha-nvim' })              -- Dashboard
   use({ 'nvim-treesitter/nvim-treesitter' }) -- Code color
   use({ 'tjdevries/colorbuddy.nvim' })       -- Color theme
+	use({ 'AstroNvim/astrotheme' })
+	use({ 'psiska/telescope-hoogle.nvim' })
 
   -- Tabs for each buffer
   use({ 'akinsho/bufferline.nvim',

@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  astrotheme = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/astrotheme",
+    url = "https://github.com/AstroNvim/astrotheme"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -198,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
+  ["telescope-hoogle.nvim"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-hoogle.nvim",
+    url = "https://github.com/psiska/telescope-hoogle.nvim"
   },
   ["telescope-ui-select.nvim"] = {
     loaded = true,

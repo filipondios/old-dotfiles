@@ -21,6 +21,7 @@ set.shiftwidth=2	        -- Number of spaces for each step of (auto)indent
 set.smartindent=true	    -- Do clever autoindenting
 set.writebackup=false     -- Do not write a backup file before overriting a file
 set.swapfile=false        -- Do not use a swap file for a buffer
+set.clipboard='unnamedplus'
 
 -- Completion options
 set.completeopt={'menu','menuone','noselect'}
@@ -31,6 +32,3 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   command = 'highlight link CursorLine CursorColumn',
   pattern = { '*' },
 })
-
--- Set colorscheme
- vim.cmd.colorscheme('gruvbuddy')

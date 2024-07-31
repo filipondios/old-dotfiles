@@ -16,6 +16,14 @@ telescope.setup({
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {},
     },
+		hoogle = {
+			render = 'default',
+			renders = {
+				treesitter = {
+					remove_wrap = false
+				}
+			}
+		}
   },
 })
 
@@ -23,6 +31,7 @@ telescope.setup({
 pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "smart_history")
 pcall(require("telescope").load_extension, "ui-select")
+pcall(require("telescope").load_extension, "hoogle")
 
 -- Add custom keymaps:
 local builtin = require('telescope.builtin')
