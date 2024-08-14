@@ -3,8 +3,11 @@
 # Enviroment variables & zsh
 PATH="$PATH:$HOME/.local/bin/:$HOME/.zig-0.14.0/"
 ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
 source $ZSH/oh-my-zsh.sh
+
+# Change prompt
+PS1="%F{1}%n%F{reset}@%m%f %~ "
 
 # Aliases definition
 alias ls="eza --icons --group-directories-first"

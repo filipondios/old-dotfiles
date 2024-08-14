@@ -16,7 +16,6 @@ floating_modifier $mod
 # No title bar.
 default_border pixel 3
 default_floating_border pixel 3
-client.focused  #000 #000 #000 #000 #3f4445
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"

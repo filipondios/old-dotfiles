@@ -3,13 +3,13 @@ padding.x = 20
 padding.y = 20
 
 [font]
-normal.family = "Terminess Nerd Font"
-size = 15
+normal.family = "Iosevka Nerd Font"
+size = 14
 glyph_offset.x = 0
 glyph_offset.y = 0
 
 [colors]
-primary.background = "#101012"
+primary.background = "#0e0a02"
 primary.foreground = "#bfc9db"
 cursor.text = "CellForeground"
 cursor.cursor = "#bfc9db"
