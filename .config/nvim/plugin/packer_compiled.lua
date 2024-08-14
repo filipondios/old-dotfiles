@@ -149,16 +149,6 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["neo-tree.nvim"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -194,6 +184,11 @@ _G.packer_plugins = {
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/home/tux/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["sqlite.lua"] = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/sqlite.lua",
@@ -203,11 +198,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
-  ["telescope-hoogle.nvim"] = {
-    loaded = true,
-    path = "/home/tux/.local/share/nvim/site/pack/packer/start/telescope-hoogle.nvim",
-    url = "https://github.com/psiska/telescope-hoogle.nvim"
   },
   ["telescope-ui-select.nvim"] = {
     loaded = true,

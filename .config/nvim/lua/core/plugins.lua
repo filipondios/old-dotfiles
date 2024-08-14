@@ -15,9 +15,11 @@ return require('packer').startup(function(use)
   use({ 'lewis6991/gitsigns.nvim' })         -- Git integration
   use({ 'goolord/alpha-nvim' })              -- Dashboard
   use({ 'nvim-treesitter/nvim-treesitter' }) -- Code color
-  use({ 'tjdevries/colorbuddy.nvim' })       -- Color theme
+
+  -- Color Themes 
+  use({ 'tjdevries/colorbuddy.nvim' })
 	use({ 'AstroNvim/astrotheme' })
-	use({ 'psiska/telescope-hoogle.nvim' })
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   -- Tabs for each buffer
   use({ 'akinsho/bufferline.nvim',
@@ -28,16 +30,6 @@ return require('packer').startup(function(use)
   -- Status line (live editor info)
 	use({ 'tjdevries/express_line.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
-  })
-
-	-- File manager inside neovim
-  use({ 'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'MunifTanjim/nui.nvim'
-    }
   })
 
   -- Code completion
