@@ -25,7 +25,7 @@
 - Fancy ls command: [eza](https://archlinux.org/packages/extra/x86_64/eza/)
 - Desktop color picker: [xcolor](https://archlinux.org/packages/extra/x86_64/xcolor/)
 
-## Keybindigs
+## Keybindigs (Desktop)
 
 Generic keybindings for all window managers:
 
