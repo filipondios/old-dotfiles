@@ -33,6 +33,7 @@ Pictures/
 .config/pulse/
 .config/dconf/
 .config/pavucontrol.ini
+.config/nvim/plugin
 
 # Rust 
 .cargo/
