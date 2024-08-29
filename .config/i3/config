@@ -1,7 +1,8 @@
 # Autostart
 # We use the '--no-startup-id' so the cursor does not look
 # like something is loading
-exec --no-startup-id "killall -9 xsettingsd"
+exec --no-startup-id "killall -9 xsettingsd picom"
+exec --no-startup-id "picom &"
 exec --no-startup-id "xsettingsd --config=/home/tux/.config/xsettingsd &"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
 exec --no-startup-id "xrdb merge /home/tux/.Xresources"
@@ -12,10 +13,28 @@ exec --no-startup-id "xrdb merge /home/tux/.Xresources"
 set $mod Mod4	
 floating_modifier $mod
 
+# Borders
+smart_borders on
+
+# Border colors
+set_from_resource $fg     i3wm.color7   #0e0e08
+set_from_resource $bg     i3wm.color0   #0e0e08
+set_from_resource $active i3wm.color1   #4c7899
+set_from_resource $alert  i3wm.color13  #0e0e08
+
+# Colour classes        border  background  text   indicator  child_border
+client.focused          $bg     $bg         $bg    $bg        $active
+client.focused_inactive $bg     $bg         $fg    $bg        $bg
+client.unfocused        $bg     $bg         $fg    $bg        $bg
+client.urgent           $bg     $bg         $fg    $bg        $bg
+client.placeholder      $bg     $bg         $fg    $bg        $bg
+client.background       $bg
+
 # Window decorarions configuration
 # No title bar.
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
+
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -73,5 +92,5 @@ bindsym $mod+Shift+q exec "killall i3"
 bindsym $mod+r       mode 'resize'
 
 # Resize windows
-bindsym $mod+j resize shrink width 30 px 
-bindsym $mod+i resize grow width 30 px
+bindsym $mod+j resize shrink width 60 px 
+bindsym $mod+i resize grow width 60 px
