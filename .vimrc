@@ -1,4 +1,3 @@
-
 if &compatible
   " Vim settings
   set nocompatible
@@ -43,8 +42,8 @@ syntax on
 
 " Plugins
 call plug#begin()
-	Plug 'preservim/nerdtree'
-	Plug 'sheerun/vim-polyglot'
+  Plug 'preservim/nerdtree'
+  Plug 'sheerun/vim-polyglot'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'rust-lang/rust.vim'
