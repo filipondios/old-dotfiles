@@ -15,20 +15,31 @@
 - Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
 - Cursor Theme: [Capitaine Cursors](https://www.gnome-look.org/p/1148692)
 
-## Other programs
-
-- Image viewer/wallpaper manager: [feh](https://archlinux.org/packages/extra/x86_64/feh/)
-- System information: [pfetch](https://aur.archlinux.org/packages/pfetch)
-- System monitor: [btop](https://archlinux.org/packages/extra/x86_64/btop/)
-- Screenshots: [flameshot](https://archlinux.org/packages/extra/x86_64/flameshot/)
-- Fancy ls command: [eza](https://archlinux.org/packages/extra/x86_64/eza/)
-- Desktop color picker: [xcolor](https://archlinux.org/packages/extra/x86_64/xcolor/)
+## Dendencies
+```bash
+sudo pacman -Syu && pacman -S\
+ alacritty\
+ btop\
+ eza\
+ flameshot\
+ i3-wm\
+ i3blocks\
+ i3lock\
+ i3status\
+ neovim\
+ ripgrep\
+ xclip\
+ xcolor\
+ xsettingsd\
+ zsh-autosuggestions\
+ zsh-syntax-highlighting
+```
 
 ## Keybindigs (i3)
 
 Generic keybindings for all window managers:
 
-| Keys                       | Action                                 |
+| Keys                        | Action                                 |
 |-----------------------------|---------------------------------------|
 | `Win` + `Return`            | Open terminal                         |
 | `Win` + `q`                 | Close focused window                  |
@@ -45,3 +56,15 @@ Generic keybindings for all window managers:
 | `Win` + `Shift` + `p`       | Start color desktop picker            |
 | `Win` + `Shift` + `r`       | Restart window manager                |
 | `Win` + `Shift` + `q`       | Kill/quit window manager              |
+
+## Keybindings (neovim)
+
+| Mode     | Keys                | Action                        |
+| -------- | --------------------|-------------------------------|
+| `Normal` | `Alt` + `n`         | Switch to next buffer         |
+| `Normal` | `Alt` + `p`         | Switch to previous buffer     |
+| `Normal` | `Alt` + `c`         | Close current buffer          |
+| `Normal` | `Alt` + `s`         | Vertical split current buffer |
+| `Normal` | `Space` + `f` + `f` | Find file                     |   |
+| `Normal` | `Space` + `f` + `b` | Find buffer                   |
+| `Normal` | `Space` + `f` + `s` | Find string in files          |
