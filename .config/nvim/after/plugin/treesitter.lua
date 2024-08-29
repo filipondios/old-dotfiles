@@ -1,4 +1,8 @@
-local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
+---------------------------------------------
+-- Treesitter (code highlighting) settings --
+---------------------------------------------
+
+local status_ok, treesitter = pcall(require, 'nvim-treesitter.configs')
 if not status_ok then
   return
 end
@@ -6,15 +10,12 @@ end
 treesitter.setup ({
   ensure_installed = {
     'lua',
-    'rust',
     'haskell'
   },
-
   autopairs = { enable = true },
-  indent = { enable = true },
+  indent = { enable = false },
   sync_install = false,
-  auto_install = true,
-
+  auto_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,

@@ -1,42 +1,27 @@
-local status_ok, telescope = pcall(require, "telescope")
+---------------------------------------
+-- Telescope (fuzzy finder) settings --
+---------------------------------------
+
+local status_ok, telescope = pcall(require, 'telescope')
 if not status_ok then
   return
 end
 
-local data = assert(vim.fn.stdpath "data") --[[@as string]]
+-- Add some extensions to telescope
+pcall(telescope.load_extension, 'ui-select')       -- Enhances Telescope UI pickers
+local previewers = require('telescope.previewers') -- Search previewers
 
 telescope.setup({
-  extensions = {
-    wrap_results = true,
-    fzf = {},
-    history = {
-      path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
-      limit = 100,
-    },
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown {},
-    },
-		hoogle = {
-			render = 'default',
-			renders = {
-				treesitter = {
-					remove_wrap = false
-				}
-			}
-		}
-  },
+  defaults = {
+    layout_config = { vertical = { width = 0.8, height = 0.6 } },
+    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+	  file_previewer = previewers.vim_buffer_cat.new,
+	  grep_previewer = previewers.vim_buffer_vimgrep.new,
+	  qflist_previewer = previewers.vim_buffer_qflist.new,
+    sorting_strategy = 'ascending',
+    layout_strategy = 'vertical',
+    selection_caret = '  ',
+    prompt_prefix = ' ',
+    entry_prefix = '  '
+  }
 })
-
--- Add some extensions to telescope
-pcall(require("telescope").load_extension, "fzf")
-pcall(require("telescope").load_extension, "smart_history")
-pcall(require("telescope").load_extension, "ui-select")
-
--- Add custom keymaps:
-local builtin = require('telescope.builtin')
-vim.keymap.set("n", "<space>ff", builtin.find_files)
-vim.keymap.set("n", "<space>ft", builtin.git_files)
-vim.keymap.set("n", "<space>fh", builtin.help_tags)
-vim.keymap.set("n", "<space>fg", builtin.live_grep)
-vim.keymap.set("n", "<space>/", builtin.current_buffer_fuzzy_find)
-vim.keymap.set("n", "<space>fs", builtin.grep_string)
