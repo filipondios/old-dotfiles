@@ -1,6 +1,14 @@
-# Dotfiles
+<div align='center'>
+ <h1>Dotfiles</h1>
+</div>
 
 ![preview(1)](https://github.com/user-attachments/assets/3b4b7413-a5e0-461c-b1fe-5d6a04211a45)
+
+<h1>
+  <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/dpv927/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
+  <a href="#--------"><img alt="" align="left" src="https://badges.pufler.dev/visits/dpv927/dotfiles?style=flat-square&label=&color=0C0E0F&logo=github&logoColor=white&labelColor=0C0E0F"/></a>
+</h1>
+
 
 ## System Info
 - OS: [Arch Linux](https://archlinux.org/)
