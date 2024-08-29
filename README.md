@@ -23,7 +23,7 @@
 - Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
 - Cursor Theme: [Capitaine Cursors](https://www.gnome-look.org/p/1148692)
 
-## Dendencies
+## Dependencies
 ```bash
 sudo pacman -Syu && pacman -S\
  alacritty\
