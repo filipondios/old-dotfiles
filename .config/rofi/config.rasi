@@ -1,0 +1,127 @@
+configuration {
+  show-icons: true;
+  steal-focus: true;
+  modi: "drun";
+}
+
+* {
+  font: "Iosevka Nerd font 20";
+  element-selected-foreground: #f1f2f4;
+  element-selected-background: #202020;
+  element-foreground: #adb0bb;
+  element-background: #0e0a02;
+  input-border-color: #2e3138;
+  bar-background: #393e47;
+  bar-color: #adb0ba;
+  border-color: #4c7899;
+  background: #0e0a02;
+  foreground: #b9b8b9;
+}
+
+window {
+  background-color: var(background);
+  border-color: var(border-color);
+  border-radius: 0px;
+  border: 4px solid;
+  width: 1100px;
+  height: 800px;
+  enabled: true;
+  padding: 0px;
+  margin: 0px;
+}
+
+mainbox {
+  children: [ "inputbar", "listview" ];
+  border-color: var(border-color);
+  background-color: transparent;
+  enabled: true;
+  spacing: 10px;
+  padding: 30px;
+  border: 0px;
+  margin: 0px;
+}
+
+inputbar {
+  children: [ "textbox-prompt-colon", "entry" ];
+  border-color: var(input-border-color);
+  background-color: transparent;
+  text-color: var(foreground);
+  border: 2px solid;
+  enabled: true;
+  spacing: 10px;
+  padding: 0px;
+  margin: 0px;
+}
+
+prompt {
+  background-color: inherit;
+  text-color: inherit;
+  enabled: true;
+}
+
+textbox-prompt-colon {
+  background-color: inherit;
+  text-color: inherit;
+  padding: 8px 0px;
+  enabled: true;
+  expand: false;
+  str: "  ";
+}
+
+entry {
+  placeholder-color: inherit;
+  background-color: inherit;
+  placeholder: "Search...";
+  text-color: inherit;
+  padding: 8px 0px;
+  enabled: true;
+  cursor: text;
+}
+
+num-filtered-rows {
+  background-color: inherit;
+  text-color: inherit;
+  enabled: true;
+  expand: false;
+}
+
+listview {
+  border-color: var(border-color);
+  background-color: transparent;
+  text-color: var(foreground);
+  enabled: true;
+  spacing: 5px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  cycle: true;
+  columns: 1;
+  lines: 8;
+}
+
+scrollbar {
+  background-color: var(bar-background);
+  handle-color: var(bar-color);
+  border-radius: 0px;
+  handle-width: 5px;
+}
+
+element {
+  background-color: var(element-background);
+  text-color: var(element-foreground);
+  cursor: pointer;
+  padding: 20px;
+  enabled: true;
+  spacing: 10px;
+  margin: 0px;
+  border: 0px;
+}
+
+element selected.normal {
+  background-color: var(element-selected-background);
+  text-color: var(element-selected-foreground);
+}
+
+element alternate.normal {
+  background-color: var(element-background);
+}

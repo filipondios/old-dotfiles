@@ -44,7 +44,7 @@ bindsym XF86AudioMicMute     exec --no-startup-id "pactl set-source-mute @DEFAUL
 # Basic system keys
 bindsym $mod+Return            exec "alacritty"
 bindsym $mod+q                 kill
-bindsym $mod+d                 exec --no-startup-id "dmenu_run"
+bindsym $mod+d                 exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+s           exec --no-startup-id "flameshot gui"
 bindsym --release $mod+Shift+p exec --no-startup-id "xcolor | tr -d '\n' | xclip -selection clipboard"
 
