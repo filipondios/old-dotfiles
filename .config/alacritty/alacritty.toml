@@ -16,23 +16,23 @@ cursor.cursor = "#bfc9db"
 
 [colors.normal]
 black = "#646a73"
-blue = "#8AB4F8"
-cyan = "#03dac6"
-green = "#a5d6a7"
-magenta = "#bb86fc"
-red = "#cf6679"
-white = "#ffffff"
-yellow = "#fff59d"
+blue = "#5eb7ff"
+cyan = "#4ac2b8"
+green = "#87c05f"
+magenta = "#dd97f1"
+red = "#ff838b"
+white = "#adb0bb"
+yellow = "#eb8332"
 
 [colors.bright]
 black = "#646a73"
-blue = "#8AB4F8"
-cyan = "#03dac6"
-green = "#a5d6a7"
-magenta = "#bb86fc"
-red = "#cf6679"
-white = "#858893"
-yellow = "#ffecb3"
+blue = "#5eb7ff"
+cyan = "#4ac2b8"
+green = "#87c05f"
+magenta = "#dd97f1"
+red = "#ff838b"
+white = "#696c76"
+yellow = "#f5983a"
 
 [selection]
 save_to_clipboard = true
