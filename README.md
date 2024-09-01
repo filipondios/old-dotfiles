@@ -52,7 +52,7 @@ Generic keybindings for all window managers:
 |-----------------------------|---------------------------------------|
 | `Win` + `Return`            | Open terminal                         |
 | `Win` + `q`                 | Close focused window                  |
-| `Win` + `d`                 | Open application launcher             |
+| `Win` + `d`                 | Open application launcher (rofi)      |
 | `Win` + `[1..5]`            | Switch to workspace `1..5`            |
 | `Win` + `Shift` + `[1..5]`  | Send Window to workspace `1..5`       |
 | `Win` + `i`                 | Increase focused window width         |
