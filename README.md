@@ -28,6 +28,7 @@
 sudo pacman -Syu && pacman -S\
  alacritty\
  btop\
+ rofi\
  eza\
  flameshot\
  i3-wm\
