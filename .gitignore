@@ -1,6 +1,6 @@
 # Ignore emacs things
-./.emacs.d/eln-cache/
-./.emacs.d/auto-save-list/
+.emacs.d/eln-cache/
+.emacs.d/auto-save-list/
 
 # Ignore neovim things
-./.config/nvim/plugin/
+.config/nvim/plugin/
