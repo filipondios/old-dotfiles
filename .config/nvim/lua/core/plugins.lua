@@ -34,9 +34,6 @@ return require('packer').startup(function(use)
 	  use({ 'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }})
 
-    -- use({ 'tjdevries/express_line.nvim',
-    -- requires = { 'nvim-lua/plenary.nvim' }})
-
     -- Telescope (fuzzy finder)
     use ({ 'nvim-telescope/telescope.nvim',
     requires = { 'nvim-lua/plenary.nvim' }})
