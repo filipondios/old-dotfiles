@@ -14,6 +14,10 @@
 ;; Dont wrap lines
 (setq truncate-lines t)
 
+;; Disable initial buffer
+(setq inhibit-startup-screen t
+      initial-buffer-choice  nil)
+
 ;; Show line numbers
 (setq display-line-numbers t)
 (global-display-line-numbers-mode t)
@@ -22,6 +26,9 @@
 ;; file. Put those things at other location.
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file t)
+
+;; Change UI font style and size
+(set-face-attribute 'default nil :font "Ubuntu Mono Nerd Font" :height 150)
 
 ;; Enable smooth scrolling
 (setq pixel-scroll-recision-large-scroll-height 50.0)
@@ -40,7 +47,7 @@
 
 (package-initialize)
 (unless package-archive-contents (package-refresh-contents))
-(unless (package-installed-p 'use-package) (package-install 'use-package))
+;(unless (package-installed-p 'use-package) (package-install 'use-package))
 (require 'use-package)
 (setq use-package-always-ensure t)
 
