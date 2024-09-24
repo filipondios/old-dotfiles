@@ -18,10 +18,11 @@
 - Editor: [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
 - Web browser: [firefox](https://archlinux.org/packages/extra/x86_64/firefox/)
 
-## GTK Theming 
+## UI Theming 
 - Widget Theme: [Orchis](https://www.gnome-look.org/p/1357889)
 - Icon Theme: [Kora](https://www.gnome-look.org/p/1256209)
 - Cursor Theme: [Capitaine Cursors](https://www.gnome-look.org/p/1148692)
+- Font: [Ubuntu Mono Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 ## Dependencies
 ```bash
