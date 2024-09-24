@@ -1,6 +1,7 @@
 # Ignore emacs things
 .emacs.d/eln-cache/
 .emacs.d/auto-save-list/
+.emacs.d/elpa/
 
 # Ignore neovim things
 .config/nvim/plugin/
