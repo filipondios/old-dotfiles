@@ -8,10 +8,7 @@ if not status_ok then
 end
 
 treesitter.setup ({
-  ensure_installed = {
-    'lua',
-    'haskell'
-  },
+  ensure_installed = { 'lua' },
   autopairs = { enable = true },
   indent = { enable = false },
   sync_install = false,
