@@ -1,59 +1,66 @@
--------------------------------
--- Nvim status line settings --
--------------------------------
+-----------------------------
+-- Nvim status line config --
+-----------------------------
 
-local M = {}
-local builtin = require('el.builtin')
-local extensions = require('el.extensions')
-local subscribe = require ('el.subscribe')
-local sections = require ('el.sections')
-
-M.setup = function()
-  require('el').setup {
-    generator = function()
-      local segments = {}
-
-      table.insert(segments, extensions.mode)
-      table.insert(segments, ' ')
-      table.insert(
-        segments,
-        subscribe.buf_autocmd('el-git-branch', 'BufEnter', function(win, buf)
-          local branch = extensions.git_branch(win, buf)
-          if branch then
-            return branch
-          end
-        end)
-      )
-      table.insert(
-        segments,
-        subscribe.buf_autocmd('el-git-changes', 'BufWritePost', function(win, buf)
-          local changes = extensions.git_changes(win, buf)
-          if changes then
-            return changes
-          end
-        end)
-      )
-      table.insert(segments, function()
-        local task_count = #require('misery.scheduler').tasks
-        if task_count == 0 then
-          return ''
-        else
-          return string.format('(Queued Events: %d)', task_count)
-        end
-      end)
-      table.insert(segments, sections.split)
-      table.insert(segments, '%f')
-      table.insert(segments, sections.split)
-      table.insert(segments, builtin.filetype)
-      table.insert(segments, '[')
-      table.insert(segments, builtin.line_with_width(3))
-      table.insert(segments, ':')
-      table.insert(segments, builtin.column_with_width(2))
-      table.insert(segments, ']')
-      return segments
-    end,
-  }
+local status_ok, lualine = pcall(require, 'lualine')
+if not status_ok then
+  return
 end
 
-M.setup()
-return M
+-- Bubbles config for lualine
+-- Author: lokesh-krishna
+-- MIT license, see LICENSE for more details.
+
+-- stylua: ignore
+local colors = {
+  black  = '#080808',
+  white  = '#c6c6c6',
+  violet = '#d183e8',
+  grey   = '#303030',
+}
+
+local bubbles_theme = {
+  normal = {
+    a = { fg = colors.black, bg = colors.violet },
+    b = { fg = colors.white, bg = colors.grey },
+    c = { fg = colors.white },
+  },
+
+  insert = { a = { fg = colors.black, bg = colors.violet } },
+  visual = { a = { fg = colors.black, bg = colors.violet } },
+  replace = { a = { fg = colors.black, bg = colors.violet } },
+
+  inactive = {
+    a = { fg = colors.white, bg = colors.black },
+    b = { fg = colors.white, bg = colors.black },
+    c = { fg = colors.white },
+  },
+}
+
+lualine.setup {
+  options = {
+    theme = bubbles_theme,
+    component_separators = '',
+    section_separators = { left = '', right = '' },
+  },
+  sections = {
+    lualine_a = { { 'mode', separator = { left = '▐' }, right_padding = 2 } },
+    lualine_b = { 'filename', 'branch' },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { 'filetype', 'progress' },
+    lualine_z = {
+      { 'location', separator = { right = '▌' }, left_padding = 2 },
+    },
+  },
+  inactive_sections = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = { '' },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = { 'location' },
+  },
+  tabline = {},
+  extensions = {},
+}

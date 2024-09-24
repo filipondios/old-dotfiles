@@ -27,10 +27,15 @@ return require('packer').startup(function(use)
     use({ 'AstroNvim/astrotheme' })
     -- Command ':' completion
     use({ 'smolck/command-completion.nvim' })
+    -- Show indentation lines
+    use({ 'lukas-reineke/indent-blankline.nvim' })
 
     -- Status line (live editor info)
-	  use({ 'tjdevries/express_line.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }})
+	  use({ 'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' }})
+
+    -- use({ 'tjdevries/express_line.nvim',
+    -- requires = { 'nvim-lua/plenary.nvim' }})
 
     -- Telescope (fuzzy finder)
     use ({ 'nvim-telescope/telescope.nvim',
