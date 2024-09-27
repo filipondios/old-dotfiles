@@ -23,7 +23,7 @@
 - Widget Theme: [Orchis]
 - Icon Theme: [Kora]
 - Cursor Theme: [Capitaine Cursors]
-- Font: [Ubuntu Mono Nerd Font]
+- Font: [FantasqueSansM Nerd Font]
 
 ## Dependencies
 ```bash
@@ -107,7 +107,7 @@ Generic keybindings for all window managers:
 [Orchis]: https://www.gnome-look.org/p/1357889
 [Kora]: https://www.gnome-look.org/p/1256209
 [Capitaine Cursors]: https://www.gnome-look.org/p/1148692
-[Ubuntu Mono Nerd Font]: https://www.nerdfonts.com/font-downloads
+[FantasqueSansM Nerd Font]: https://www.nerdfonts.com/font-downloads
 
 <!-- Neovim -->
 [packer]: https://github.com/wbthomason/packer.nvim
