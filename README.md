@@ -2,7 +2,8 @@
  <h1>Dotfiles</h1>
 </div>
 
-![preview]
+![preview1]
+![preview2]
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/dpv927/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
@@ -91,7 +92,8 @@ Generic keybindings for all window managers:
 
 
 <!-- Config screenshots -->
-[preview]: https://github.com/user-attachments/assets/3b4b7413-a5e0-461c-b1fe-5d6a04211a45
+[preview1]: https://github.com/user-attachments/assets/a5d1dd24-d9fb-4fce-9277-d78a54f9e566
+[preview2]: https://github.com/user-attachments/assets/e4a71c2d-3f83-4fae-ae82-f3dd6d1d4587
 
 <!-- System Info -->
 [Arch Linux]: https://archlinux.org/
