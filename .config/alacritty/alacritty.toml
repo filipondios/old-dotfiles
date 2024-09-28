@@ -3,8 +3,8 @@ padding.x = 20
 padding.y = 20
 
 [font]
-normal.family = "Ubuntu Mono Nerd Font"
-size = 14
+normal.family = "FantasqueSansM Nerd Font"
+size = 15
 glyph_offset.x = 0
 glyph_offset.y = 0
 
