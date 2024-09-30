@@ -2,7 +2,12 @@
 -- Nvim LSP (language smarts) settings --
 -----------------------------------------
 
-require('mason').setup({
+local status_ok, mason = pcall(require, 'mason')
+if not status_ok then
+  return
+end
+
+mason.setup({
   ui = {
     keymaps = { uninstall_package = 'x' },
     border = 'single',
@@ -15,7 +20,12 @@ require('mason').setup({
   }
 })
 
-local mason_lspconfig = require('mason-lspconfig')
+
+local status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
+if not status_ok then
+  return
+end
+
 mason_lspconfig.setup({
   ensure_installed = { 'lua_ls' }
 })
@@ -25,7 +35,13 @@ mason_lspconfig.setup_handlers({
   end,
 })
 
-require('lspsaga').setup({
+
+local status_ok, lspsaga = pcall(require, 'lspsaga')
+if not status_ok then
+  return
+end
+
+lspsaga.setup({
   definition = {
     width = 0.8,
     height = 0.6
