@@ -1,7 +1,7 @@
 [[ $- != *i* ]] && return
 
 # Enviroment variables & zsh
-PATH="$PATH:$HOME/.local/bin/:$HOME/.local/bin/"
+PATH="$PATH:$HOME/.local/bin/"
 ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
@@ -23,6 +23,3 @@ ZSH_SYNTAX="zsh-syntax-highlighting"
 ZSH_AUTOSG="zsh-autosuggestions"
 source "$ZSH_PLUGINS/$ZSH_SYNTAX/$ZSH_SYNTAX.zsh"
 source "$ZSH_PLUGINS/$ZSH_AUTOSG/$ZSH_AUTOSG.zsh"
-
-# Load ghcup-env
-[ -f "/home/tux/.ghcup/env" ] && . "/home/tux/.ghcup/env"
