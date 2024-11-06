@@ -1,31 +1,29 @@
 # Autostart
 # We use the '--no-startup-id' so the cursor does not look
 # like something is loading
-exec --no-startup-id "killall -9 xsettingsd picom"
-exec --no-startup-id "picom &"
+exec --no-startup-id "killall -9 xsettingsd"
 exec --no-startup-id "xsettingsd --config=/home/tux/.config/xsettingsd &"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
 exec --no-startup-id "xrdb merge /home/tux/.Xresources"
+exec --no-startup-id "xset s off"
+exec --no-startup-id "xset -dpms"
+exec --no-startup-id "xset s noblank"
 
-# Set the leader key as the Win key.
-# The leader key is the fist key to press when
-# trying to execute a keybinding
 set $mod Mod4	
 floating_modifier $mod
-
-# Borders
 smart_borders on
 
 # Border colors
-set_from_resource $fg     i3wm.color7   #0e0e08
-set_from_resource $bg     i3wm.color0   #0e0e08
-set_from_resource $active i3wm.color1   #4c7899
-set_from_resource $alert  i3wm.color13  #0e0e08
+set_from_resource $fg       i3wm.color0 #0e0e08
+set_from_resource $bg       i3wm.color1 #0e0e08
+set_from_resource $active   i3wm.color2 #666f7f
+set_from_resource $alert    i3wm.color3 #0e0e08
+set_from_resource $inactive i3wm.color  #393e47
 
 # Colour classes        border  background  text   indicator  child_border
 client.focused          $bg     $bg         $bg    $bg        $active
 client.focused_inactive $bg     $bg         $fg    $bg        $bg
-client.unfocused        $bg     $bg         $fg    $bg        $bg
+client.unfocused        $bg     $bg         $fg    $bg        $inactive
 client.urgent           $bg     $bg         $fg    $bg        $bg
 client.placeholder      $bg     $bg         $fg    $bg        $bg
 client.background       $bg
@@ -34,6 +32,9 @@ client.background       $bg
 # No title bar.
 default_border          pixel 2
 default_floating_border pixel 2
+
+# Window Gaps
+gaps inner 10
 
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -95,3 +96,26 @@ bindsym $mod+j        resize shrink width  60 px
 bindsym $mod+i        resize grow   width  60 px
 bindsym $mod+Shift+j  resize shrink height 60 px
 bindsym $mod+Shift+i  resize grow   height 60 px
+
+# Status bar
+bar {
+  font pango: Iosevka Nerd Font 12
+  status_command i3status
+  bindsym button1 nop
+  position top
+  tray_output none
+  workspace_min_width 70
+  separator_symbol " | "
+  padding 3 0
+
+  colors {
+    background #0e0a02
+    statusline #adb0bb
+
+    # colorclass       border   background text  
+    focused_workspace  #666666  #161003    #ffffff
+    active_workspace   #666666  #161003    #ffffff
+    inactive_workspace #666666  #161003    #b3b3b3
+    urgent_workspace   #ffffff  #eb709b    #ffffff
+  }
+}
