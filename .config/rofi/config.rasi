@@ -13,7 +13,7 @@ configuration {
   input-border-color: #2e3138;
   bar-background: #393e47;
   bar-color: #adb0ba;
-  border-color: #4c7899;
+  border-color: #666f7f;
   background: #0e0a02;
   foreground: #b9b8b9;
 }

@@ -1,10 +1,11 @@
 # Autostart
-# We use the '--no-startup-id' so the cursor does not look
-# like something is loading
+# (Theme initialization)
 exec --no-startup-id "killall -9 xsettingsd"
 exec --no-startup-id "xsettingsd --config=/home/tux/.config/xsettingsd &"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
+exec --no-startup-id "/home/tux/.fehbg"
 exec --no-startup-id "xrdb merge /home/tux/.Xresources"
+# (Disable screen poweroff)
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
 exec --no-startup-id "xset s noblank"
