@@ -32,6 +32,7 @@ sudo pacman -Sy\
  rofi\
  eza\
  i3-wm\
+ i3status\
  neovim\
  ripgrep\
  xsettingsd\
@@ -92,8 +93,8 @@ Generic keybindings for all window managers:
 
 
 <!-- Config screenshots -->
-[preview1]: https://github.com/user-attachments/assets/a5d1dd24-d9fb-4fce-9277-d78a54f9e566
-[preview2]: https://github.com/user-attachments/assets/e4a71c2d-3f83-4fae-ae82-f3dd6d1d4587
+[preview1]: https://github.com/user-attachments/assets/6fa81362-f935-4add-87d3-5432a204694e
+[preview2]: https://github.com/user-attachments/assets/c3424012-88d0-4e1f-8646-9de648f8a630
 
 <!-- System Info -->
 [Arch Linux]: https://archlinux.org/
