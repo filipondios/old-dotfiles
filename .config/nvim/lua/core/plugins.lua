@@ -25,11 +25,13 @@ return require('packer').startup(function(use)
     use({ 'nvim-treesitter/nvim-treesitter' })
     -- Color theme (from astrovim)
     use({ 'AstroNvim/astrotheme' })
+    use({ 'folke/tokyonight.nvim' })
+    use({ 'rebelot/kanagawa.nvim' })
+    use({ 'rose-pine/neovim' })
     -- Command ':' completion
     use({ 'smolck/command-completion.nvim' })
     -- Show indentation lines
     use({ 'lukas-reineke/indent-blankline.nvim' })
-
     -- Status line (live editor info)
 	  use({ 'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons' }})

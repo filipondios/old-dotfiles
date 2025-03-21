@@ -16,14 +16,15 @@ set.number=true	   			    -- Show the number for each line
 set.relativenumber=true     -- Show the line number relative to the cursor's line
 set.numberwidth=4 	        -- Number of columns to use for the line number
 set.undoreload=1000	        -- Maximum number of lines to save for undo
-set.tabstop=2		            -- Number of spaces a <Tab> in the text stands for
-set.softtabstop=2           -- Number of spaces a <Tab> counts while editing 
-set.shiftwidth=2	          -- Number of spaces for each step of (auto)indent
+set.tabstop=4		            -- Number of spaces a <Tab> in the text stands for
+set.softtabstop=4           -- Number of spaces a <Tab> counts while editing 
+set.shiftwidth=4	          -- Number of spaces for each step of (auto)indent
 set.expandtab = true        -- Convert tabs to spaces
 set.smartindent=true	      -- Do clever autoindenting
 set.writebackup=false       -- Do not write a backup file before overriting a file
 set.swapfile=false          -- Do not use a swap file for a buffer
 set.clipboard='unnamedplus' -- Clipboard
+set.colorcolumn="80"
 
 -- Completion options
 set.completeopt={'menu','menuone','noselect'}

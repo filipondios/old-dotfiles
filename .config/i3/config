@@ -90,7 +90,6 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 # Restart i3 || Exit i3 
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "killall i3"
-bindsym $mod+r       mode 'resize'
 
 # Resize windows
 bindsym $mod+j        resize shrink width  60 px 
