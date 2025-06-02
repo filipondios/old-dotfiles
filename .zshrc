@@ -1,25 +1,20 @@
 [[ $- != *i* ]] && return
 
-# Enviroment variables & zsh
-PATH="$PATH:$HOME/.local/bin/"
-ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="half-life"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
+source "$ZSH/oh-my-zsh.sh"
 
-# Change prompt
-PS1="%F{1}%n%F{reset}@%m%f %~ "
+# Cargo :O !!!
+. "$HOME/.cargo/env"
 
 # Aliases definition
-alias ls="eza --icons --group-directories-first"
-alias la="eza --icons --group-directories-first -a"
-alias ll="eza --icons --group-directories-first -al"
+alias ls="eza --icons --group-directories-first -loh --no-time"
+alias la="eza --icons --group-directories-first -laoh --no-time"
 alias tree="eza --icons -T"
-alias treel="eza --icons -T -L"
 alias grep="grep --color=auto"
+alias updates="checkupdates"
+alias packages="pacman -Qe"
 
-# Plugins
-plugins=(git)
-ZSH_PLUGINS="/usr/share/zsh/plugins"
-ZSH_SYNTAX="zsh-syntax-highlighting"
-ZSH_AUTOSG="zsh-autosuggestions"
-source "$ZSH_PLUGINS/$ZSH_SYNTAX/$ZSH_SYNTAX.zsh"
-source "$ZSH_PLUGINS/$ZSH_AUTOSG/$ZSH_AUTOSG.zsh"
+# Print system thingies
+fastfetch
