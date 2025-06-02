@@ -1,15 +1,15 @@
 [window]
-padding.x = 20
-padding.y = 20
+padding.x = 25
+padding.y = 25
 
 [font]
-normal.family = "Iosevka Nerd Font"
-size = 17
+normal.family = "JetBrains Mono Nerd Font"
+size = 16
 glyph_offset.x = 0
 glyph_offset.y = 0
 
 [colors]
-primary.background = "#0e0a02"
+primary.background = "#080808"
 primary.foreground = "#bfc9db"
 cursor.text = "CellForeground"
 cursor.cursor = "#bfc9db"
