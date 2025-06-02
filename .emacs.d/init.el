@@ -71,12 +71,3 @@
   (package-install 'evil))
 (require 'evil)
 (evil-mode 1)
-
-;; Add some repos for tree-sitter
-(setq treesit-language-source-alist
-      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-	(rust "https://github.com/tree-sitter/tree-sitter-rust")
-	(make "https://github.com/alemuller/tree-sitter-make")))
-;(mapc #'treesit-install-language-grammar
-;      (mapcar #'car treesit-language-source-alist))
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
