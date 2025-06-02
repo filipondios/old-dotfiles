@@ -15,52 +15,38 @@ local ensure_packer = function()
 end
 
 return require('packer').startup(function(use)
-    -- Packer (the package manager)
+    -- General plugins (theme, ui, file search)
     use({ 'wbthomason/packer.nvim' })
-    -- Git integration in nvim
     use({ 'lewis6991/gitsigns.nvim' })
-    -- Blank buffer dashboard
     use({ 'goolord/alpha-nvim' })
-    -- Code color highlighting
     use({ 'nvim-treesitter/nvim-treesitter' })
-    -- Color theme (from astrovim)
     use({ 'AstroNvim/astrotheme' })
-    use({ 'folke/tokyonight.nvim' })
-    use({ 'rebelot/kanagawa.nvim' })
-    use({ 'rose-pine/neovim' })
-    -- Command ':' completion
     use({ 'smolck/command-completion.nvim' })
-    -- Show indentation lines
     use({ 'lukas-reineke/indent-blankline.nvim' })
-    -- Status line (live editor info)
-	  use({ 'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' }})
+    use({ 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons' }})
+    use ({ 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }})
 
-    -- Telescope (fuzzy finder)
-    use ({ 'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }})
-
-    -- Code completion
+    -- Code completion (CMP)
 	use({ 'hrsh7th/nvim-cmp',
-		requires = {
-      'onsails/lspkind.nvim',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-buffer',
-      { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
-      'saadparwaiz1/cmp_luasnip',
+	    requires = {
+            'onsails/lspkind.nvim',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' },
+            'saadparwaiz1/cmp_luasnip',
 		}
 	})
 
-  -- Language Servers (LSP) 
-  use({ 'nvimdev/lspsaga.nvim',
+    -- Language Servers (LSP) 
+    use({ 'nvimdev/lspsaga.nvim',
     requires = {
-	    'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
-      'antosha417/nvim-lsp-file-operations',
-		  'williamboman/mason.nvim',
-		  'williamboman/mason-lspconfig.nvim',
-	  }
+        'neovim/nvim-lspconfig',
+        'hrsh7th/cmp-nvim-lsp',
+        'antosha417/nvim-lsp-file-operations',
+        'mason-org/mason.nvim',
+        'mason-org/mason-lspconfig.nvim',
+    }
   })
 
   if ensure_packer() then
