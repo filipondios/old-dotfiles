@@ -1,9 +1,8 @@
 <div align='center'>
- <h1>Dotfiles</h1>
+ <h1>Filipondios' Dotfiles</h1>
 </div>
 
-![preview1]
-![preview2]
+![preview]
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/dpv927/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
@@ -13,7 +12,7 @@
 
 ## System Info
 - OS: [Arch Linux]
-- WM: [i3]
+- WM: [hyprland]
 - Terminal: [alacritty]
 - Shell: [zsh]
 - Editor: [neovim]
@@ -93,12 +92,11 @@ Generic keybindings for all window managers:
 
 
 <!-- Config screenshots -->
-[preview1]: https://github.com/user-attachments/assets/6fa81362-f935-4add-87d3-5432a204694e
-[preview2]: https://github.com/user-attachments/assets/c3424012-88d0-4e1f-8646-9de648f8a630
+[preview]: https://github.com/user-attachments/assets/e89a909a-9b1b-47d5-bfc1-4a444605194c
 
 <!-- System Info -->
 [Arch Linux]: https://archlinux.org/
-[i3]: https://archlinux.org/packages/extra/x86_64/i3-wm/
+[hyprland]: https://archlinux.org/packages/extra/x86_64/i3-wm/
 [alacritty]: https://archlinux.org/packages/extra/x86_64/alacritty/
 [zsh]: https://archlinux.org/packages/extra/x86_64/zsh/
 [neovim]: https://archlinux.org/packages/extra/x86_64/neovim/
