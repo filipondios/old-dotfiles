@@ -1,6 +1,6 @@
 <div align='center'>
  <!-- Repo Title -->
- <h1>━━━━━━ ❖ Filipondios' Dotfiles ❖ ━━━━━━</h1>
+ <h1>━❖ Filipondios' Dotfiles ❖━</h1>
 </div>
 
 ![preview]
