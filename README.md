@@ -3,7 +3,7 @@
  <h1>━❖ Filipondios' Dotfiles ❖━</h1>
 </div>
 
-![preview]
+![preview](https://github.com/user-attachments/assets/e89a909a-9b1b-47d5-bfc1-4a444605194c)
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/dpv927/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
@@ -15,7 +15,7 @@
 
 Thanks for dropping by!
 
-This is my personal repository for my [Arch Linux](https://archlinux.org/) dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and you might not find this repository to your liking. 
+This is my personal repository for my [`Arch Linux`](https://archlinux.org/) dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and you might not find this repository to your liking. 
 
 Here are some information about my setup:
 
@@ -30,11 +30,16 @@ Here are some information about my setup:
 - Cursor Theme: [`capitaine cursors`](https://github.com/keeferrourke/capitaine-cursors)
 - Font: [`jetBrains mono`](https://github.com/ryanoasis/nerd-fonts/tree/master)
 
+## Other configs
 
+In this repository, as you can see, there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) in [.emacs.d](https://github.com/filipondios/dotfiles/tree/main/.emacs.d) and [vim]() in [.vimrc](https://github.com/filipondios/dotfiles/blob/main/.vimrc). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
+
+> [!NOTE]  
+> On the other hand, in commit [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543), you can find configurations for [i3](https://github.com/i3/i3), [xmonad](https://github.com/xmonad/xmonad), [rofi](https://github.com/davatorium/rofi), and possibly other Xorg-related config files.
 
 ## Neovim 
 
-I use [packer] as nvim's package manager. You must install it, and then 
+I use [packer](https://github.com/wbthomason/packer.nvim) as nvim's package manager. You must install it, and then 
 type the following command in your terminal to install all my plugins
 without reciving an error when opening nvim for the first time:
 ```bash 
@@ -42,9 +47,7 @@ without reciving an error when opening nvim for the first time:
 nvim -c PackerSync
 ```
 
-## Keybindigs (i3)
-
-Generic keybindings for all window managers:
+## Keybindigs (hyprland)
 
 | Keys                        | Action                                |
 |-----------------------------|---------------------------------------|
@@ -53,16 +56,9 @@ Generic keybindings for all window managers:
 | `Win` + `d`                 | Open application launcher (rofi)      |
 | `Win` + `[1..5]`            | Switch to workspace `1..5`            |
 | `Win` + `Shift` + `[1..5]`  | Send Window to workspace `1..5`       |
-| `Win` + `i`                 | Increase focused window width         |
-| `Win` + `j`                 | Decrease focused window width         |
-| `Win` + `Shift` + `i`       | Increase focused window height        |
-| `Win` + `Shift` + `j`       | Decrease focused window height        |
-| `Win` + `Shift` + `[arrow]` | Move window inside a workspace        |
 | `Win` + `f`                 | Set focused window to fullscreen mode |
-| `Win` + `period`            | Toggle window floating status         |  
+| `Win` + `space`             | Toggle window floating status         |  
 | `Win` + `Shift` + `s`       | Take a screenshot                     |
-| `Win` + `Shift` + `p`       | Start color desktop picker            |
-| `Win` + `Shift` + `r`       | Restart window manager                |
 | `Win` + `Shift` + `q`       | Kill/quit window manager              |
 
 ## Keybindings (neovim)
@@ -76,24 +72,3 @@ Generic keybindings for all window managers:
 | `Normal` | `Space` + `f` + `f` | Find file                     |
 | `Normal` | `Space` + `f` + `b` | Find buffer                   |
 | `Normal` | `Space` + `f` + `s` | Find string in files          |
-
-
-<!-- Config screenshots -->
-[preview]: https://github.com/user-attachments/assets/e89a909a-9b1b-47d5-bfc1-4a444605194c
-
-<!-- System Info -->
-[Arch Linux]: https://archlinux.org/
-[hyprland]: https://archlinux.org/packages/extra/x86_64/i3-wm/
-[alacritty]: https://archlinux.org/packages/extra/x86_64/alacritty/
-[zsh]: https://archlinux.org/packages/extra/x86_64/zsh/
-[neovim]: https://archlinux.org/packages/extra/x86_64/neovim/
-[firefox]: https://archlinux.org/packages/extra/x86_64/firefox/
-
-<!-- UI Theming -->
-[Orchis]: https://www.gnome-look.org/p/1357889
-[Kora]: https://www.gnome-look.org/p/1256209
-[Capitaine Cursors]: https://www.gnome-look.org/p/1148692
-[FantasqueSansM Nerd Font]: https://www.nerdfonts.com/font-downloads
-
-<!-- Neovim -->
-[packer]: https://github.com/wbthomason/packer.nvim
