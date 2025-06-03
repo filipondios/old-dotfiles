@@ -1,5 +1,6 @@
 <div align='center'>
- <h1>Filipondios' Dotfiles</h1>
+ <!-- Repo Title -->
+ <h1>━━━━━━ ❖ Filipondios' Dotfiles ❖ ━━━━━━</h1>
 </div>
 
 ![preview]
@@ -10,40 +11,26 @@
 </h1>
 
 
-## System Info
-- OS: [Arch Linux]
-- WM: [hyprland]
-- Terminal: [alacritty]
-- Shell: [zsh]
-- Editor: [neovim]
-- Web browser: [firefox]
+## About
 
-## UI Theming 
-- Widget Theme: [Orchis]
-- Icon Theme: [Kora]
-- Cursor Theme: [Capitaine Cursors]
-- Font: [FantasqueSansM Nerd Font]
+Thanks for dropping by!
 
-## Dependencies
-```bash
-sudo pacman -Sy\
- alacritty\
- rofi\
- eza\
- i3-wm\
- i3status\
- neovim\
- ripgrep\
- xsettingsd\
- zsh-autosuggestions\
- zsh-syntax-highlighting\
- btop\
- flameshot\
- i3blocks\
- i3lock\
- xclip\
- xcolor\
-```
+This is my personal repository for my [Arch Linux](https://archlinux.org/) dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and you might not find this repository to your liking. 
+
+Here are some information about my setup:
+
+- Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
+- Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
+- Shell: [`zsh`](https://www.zsh.org/)
+- Editor: [`neovim`](https://github.com/neovim/neovim)
+- Status Bar: [`waybar`](https://github.com/Alexays/Waybar)
+- Application Launcher: [`wofi`](https://github.com/SimplyCEO/wofi)
+- Widget Theme: [`orchis`](https://github.com/vinceliuice/Orchis-theme)
+- Icon Theme: [`kora`](https://github.com/bikass/kora)
+- Cursor Theme: [`capitaine cursors`](https://github.com/keeferrourke/capitaine-cursors)
+- Font: [`jetBrains mono`](https://github.com/ryanoasis/nerd-fonts/tree/master)
+
+
 
 ## Neovim 
 
