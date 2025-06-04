@@ -6,8 +6,8 @@
 ![preview](https://github.com/user-attachments/assets/e89a909a-9b1b-47d5-bfc1-4a444605194c)
 
 <h1>
-  <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/dpv927/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
-  <a href="#--------"><img alt="" align="left" src="https://badges.pufler.dev/visits/dpv927/dotfiles?style=flat-square&label=&color=0C0E0F&logo=github&logoColor=white&labelColor=0C0E0F"/></a>
+  <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/filipondios/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
+  <a href="#--------"><img alt="" align="left" src="https://badges.pufler.dev/visits/filipondios/dotfiles?style=flat-square&label=&color=0C0E0F&logo=github&logoColor=white&labelColor=0C0E0F"/></a>
 </h1>
 
 
