@@ -1,0 +1,46 @@
+
+theme = "dark_plus"
+
+[editor]
+line-number = "absolute"
+mouse = false
+bufferline = "always"
+shell = ["zsh", "-c"]
+cursorline = true
+color-modes = true
+completion-timeout = 150
+completion-trigger-len = 1
+completion-replace = true
+popup-border = "all"
+indent-heuristic = "tree-sitter"
+clipboard-provider = "wayland"
+
+[editor.statusline]
+left = ["mode", "spinner", "read-only-indicator", "version-control"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+mode.normal = "[~] normal"
+mode.insert = "[@] insert"
+mode.select = "[^] select"
+
+[editor.lsp]
+display-progress-messages = true
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[keys.normal]
+A-x = ":buffer-close"
+A-right = ":buffer-next"
+A-left = ":buffer-previous"
+A-r = ":config-reload"
+A-c = "toggle_comments"
+c = "command_mode"
+d = "@x<A-d>"
+r = "redo"
+A-n = ":new"
+
+
+[keys.insert]
+C-space = "completion"
