@@ -1,17 +1,16 @@
 [[language]]
 name = "rust"
 language-servers = [{ name = "rust-analyzer" }]
+auto-format = false
 
 [[language]]
 name = "haskell"
 language-servers = [{ name = "haskell-language-server" }]
 
 [[language]]
-name = "c"
+name = "cpp"
 language-servers = [{ name = "clangd" }]
-
-[language-server.clangd.config.clangd]
-config = { provideFormatter = false }
+auto-format = false
 
 [[language]]
 name = "python"
@@ -20,7 +19,3 @@ language-servers = [{ name = "pylsp" }]
 [language-server.pylsp.config.pylsp]
 plugins.ruff.enabled = true
 plugins.black.enabled = true
-
-[[language]]
-name = "rust"
-language-servers = [{ name = "rust-analyzer" }]
