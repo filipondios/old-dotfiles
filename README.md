@@ -1,9 +1,9 @@
 <div align='center'>
  <!-- Repo Title -->
- <h1>━❖ Filipondios' Dotfiles ❖━</h1>
+ <h1>Filipondios' Dotfiles</h1>
 </div>
 
-![preview](https://github.com/user-attachments/assets/e89a909a-9b1b-47d5-bfc1-4a444605194c)
+![preview](https://github.com/user-attachments/assets/2ca891d7-d6b3-4478-8682-f85f60ce1bcc)
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/filipondios/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
