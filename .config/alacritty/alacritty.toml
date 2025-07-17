@@ -8,31 +8,77 @@ size = 17
 glyph_offset.x = 0
 glyph_offset.y = 0
 
-[colors]
-primary.background = "#080808"
-primary.foreground = "#bfc9db"
-cursor.text = "CellForeground"
-cursor.cursor = "#bfc9db"
+[colors.primary]
+background = "#080808"
+foreground = "#e0def4"
+dim_foreground = "#908caa"
+bright_foreground = "#e0def4"
+
+[colors.cursor]
+text = "#e0def4"
+cursor = "#56526e"
+
+[colors.vi_mode_cursor]
+text = "#e0def4"
+cursor = "#56526e"
+
+[colors.search.matches]
+foreground = "#908caa"
+background = "#393552"
+
+[colors.search.focused_match]
+foreground = "#232136"
+background = "#ea9a97"
+
+[colors.hints.start]
+foreground = "#908caa"
+background = "#2a273f"
+
+[colors.hints.end]
+foreground = "#6e6a86"
+background = "#2a273f"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#e0def4"
+background = "#2a273f"
+
+[colors.selection]
+text = "#e0def4"
+background = "#44415a"
 
 [colors.normal]
-black = "#646a73"
-blue = "#5eb7ff"
-cyan = "#4ac2b8"
-green = "#87c05f"
-magenta = "#dd97f1"
-red = "#ff838b"
-white = "#adb0bb"
-yellow = "#eb8332"
+black = "#393552"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
 
 [colors.bright]
-black = "#646a73"
-blue = "#5eb7ff"
-cyan = "#4ac2b8"
-green = "#87c05f"
-magenta = "#dd97f1"
-red = "#ff838b"
-white = "#696c76"
-yellow = "#f5983a"
+black = "#6e6a86"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
+
+[colors.dim]
+black = "#6e6a86"
+red = "#eb6f92"
+green = "#3e8fb0"
+yellow = "#f6c177"
+blue = "#9ccfd8"
+magenta = "#c4a7e7"
+cyan = "#ea9a97"
+white = "#e0def4"
 
 [selection]
 save_to_clipboard = true
