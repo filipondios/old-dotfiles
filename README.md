@@ -28,7 +28,7 @@ Here are some information about my setup:
 - Widget Theme: [`orchis`](https://github.com/vinceliuice/Orchis-theme)
 - Icon Theme: [`kora`](https://github.com/bikass/kora)
 - Cursor Theme: [`capitaine cursors`](https://github.com/keeferrourke/capitaine-cursors)
-- Font: [`jetBrains mono`](https://github.com/ryanoasis/nerd-fonts/tree/master)
+- Font: [`Iosevka Nerd Font`](https://github.com/ryanoasis/nerd-fonts/tree/master)
 
 ## Other configs
 
