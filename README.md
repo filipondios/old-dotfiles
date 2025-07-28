@@ -22,7 +22,7 @@ Here are some information about my setup:
 - Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
 - Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
 - Shell: [`zsh`](https://www.zsh.org/)
-- Editor: [`neovim`](https://github.com/neovim/neovim)
+- Editor: [`helix`](https://github.com/helix-editor/helix)
 - Status Bar: [`waybar`](https://github.com/Alexays/Waybar)
 - Application Launcher: [`wofi`](https://github.com/SimplyCEO/wofi)
 - Widget Theme: [`orchis`](https://github.com/vinceliuice/Orchis-theme)
@@ -61,14 +61,15 @@ nvim -c PackerSync
 | `Win` + `Shift` + `s`       | Take a screenshot                     |
 | `Win` + `Shift` + `q`       | Kill/quit window manager              |
 
-## Keybindings (neovim)
+## Keybindings (helix)
 
-| Mode     | Keys                | Action                        |
-| -------- | --------------------|-------------------------------|
-| `Normal` | `Alt` + `n`         | Switch to next buffer         |
-| `Normal` | `Alt` + `p`         | Switch to previous buffer     |
-| `Normal` | `Alt` + `c`         | Close current buffer          |
-| `Normal` | `Alt` + `s`         | Vertical split current buffer |
-| `Normal` | `Space` + `f` + `f` | Find file                     |
-| `Normal` | `Space` + `f` + `b` | Find buffer                   |
-| `Normal` | `Space` + `f` + `s` | Find string in files          |
+| Mode     | Keys                | Action                          |
+| -------- | --------------------|---------------------------------|
+| `Normal` | `Alt` + `Right Key` | Switch to next buffer           |
+| `Normal` | `Alt` + `Left Key`  | Switch to previous buffer       |
+| `Normal` | `Alt` + `x`         | Close current buffer            |
+| `Normal` | `Spacebar` + `f`    | Find file                       |
+| `Normal` | `Alt` + `r`         | Reload config                   |
+| `Normal` | `Alt` + `c`         | Toggle comments in current line |
+| `Normal` | `c`                 | Enter command mode              |
+| `Normal` | `Alt` + `n`         | New buffer                      |
