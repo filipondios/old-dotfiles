@@ -37,16 +37,6 @@ In this repository, as you can see, there are other configurations (although qui
 > [!NOTE]  
 > On the other hand, in commit [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543), you can find configurations for [i3](https://github.com/i3/i3), [xmonad](https://github.com/xmonad/xmonad), [rofi](https://github.com/davatorium/rofi), and possibly other Xorg-related config files.
 
-## Neovim 
-
-I use [packer](https://github.com/wbthomason/packer.nvim) as nvim's package manager. You must install it, and then 
-type the following command in your terminal to install all my plugins
-without reciving an error when opening nvim for the first time:
-```bash 
-# Equivalent to :PackerSync inside nvim
-nvim -c PackerSync
-```
-
 ## Keybindigs (hyprland)
 
 | Keys                        | Action                                |
