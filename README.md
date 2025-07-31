@@ -21,7 +21,7 @@ Here are some information about my setup:
 
 - Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
 - Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
-- Shell: [`zsh`](https://www.zsh.org/) using [oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
+- Shell: [`zsh`](https://www.zsh.org/) using [`oh my zsh](https://github.com/ohmyzsh/ohmyzsh)
 - Editor: [`helix`](https://github.com/helix-editor/helix)
 - Status Bar: [`waybar`](https://github.com/Alexays/Waybar)
 - Application Launcher: [`wofi`](https://github.com/SimplyCEO/wofi)
