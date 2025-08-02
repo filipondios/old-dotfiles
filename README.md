@@ -32,7 +32,7 @@ Here are some information about my setup:
 
 ## Other configs
 
-In this repository, as you can see, there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) in [.emacs.d](https://github.com/filipondios/dotfiles/tree/main/.emacs.d) and [vim]() in [.vimrc](https://github.com/filipondios/dotfiles/blob/main/.vimrc). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
+In this repository, at previous commits there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) in [.emacs.d](https://github.com/filipondios/dotfiles/tree/main/.emacs.d) and [vim]() in [.vimrc](https://github.com/filipondios/dotfiles/blob/main/.vimrc). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
 
 > [!NOTE]  
 > On the other hand, in commit [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543), you can find configurations for [i3](https://github.com/i3/i3), [xmonad](https://github.com/xmonad/xmonad), [rofi](https://github.com/davatorium/rofi), and possibly other Xorg-related config files.
