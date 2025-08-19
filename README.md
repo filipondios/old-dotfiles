@@ -1,9 +1,11 @@
+
 <div align='center'>
  <!-- Repo Title -->
  <h1>Filipondios' Dotfiles</h1>
 </div>
 
-![preview](https://github.com/user-attachments/assets/2ca891d7-d6b3-4478-8682-f85f60ce1bcc)
+![preview](https://github.com/user-attachments/assets/67b18ed0-cc73-4c59-8f4f-b4b10e4ecb8e)
+
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/filipondios/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
