@@ -10,6 +10,7 @@ language-servers = [{ name = "haskell-language-server" }]
 [[language]]
 name = "cpp"
 language-servers = [{ name = "clangd" }]
+indent = { tab-width = 4, unit = "    " }
 auto-format = false
 
 [[language]]

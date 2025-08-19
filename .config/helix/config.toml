@@ -28,6 +28,7 @@ display-progress-messages = true
 
 [editor.indent-guides]
 render = true
+character = "╎"
 skip-levels = 1
 
 [keys.normal]
