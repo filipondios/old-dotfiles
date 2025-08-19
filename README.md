@@ -1,9 +1,11 @@
+
 <div align='center'>
  <!-- Repo Title -->
  <h1>Filipondios' Dotfiles</h1>
 </div>
 
-![preview](https://github.com/user-attachments/assets/2ca891d7-d6b3-4478-8682-f85f60ce1bcc)
+![preview](https://github.com/user-attachments/assets/67b18ed0-cc73-4c59-8f4f-b4b10e4ecb8e)
+
 
 <h1>
   <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/filipondios/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
@@ -21,31 +23,21 @@ Here are some information about my setup:
 
 - Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
 - Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
-- Shell: [`zsh`](https://www.zsh.org/)
-- Editor: [`neovim`](https://github.com/neovim/neovim)
+- Shell: [`zsh`](https://www.zsh.org/) using [`oh my zsh`](https://github.com/ohmyzsh/ohmyzsh)
+- Editor: [`helix`](https://github.com/helix-editor/helix)
 - Status Bar: [`waybar`](https://github.com/Alexays/Waybar)
 - Application Launcher: [`wofi`](https://github.com/SimplyCEO/wofi)
 - Widget Theme: [`orchis`](https://github.com/vinceliuice/Orchis-theme)
 - Icon Theme: [`kora`](https://github.com/bikass/kora)
 - Cursor Theme: [`capitaine cursors`](https://github.com/keeferrourke/capitaine-cursors)
-- Font: [`jetBrains mono`](https://github.com/ryanoasis/nerd-fonts/tree/master)
+- Font: [`Iosevka Nerd Font`](https://github.com/ryanoasis/nerd-fonts/tree/master)
 
 ## Other configs
 
-In this repository, as you can see, there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) in [.emacs.d](https://github.com/filipondios/dotfiles/tree/main/.emacs.d) and [vim]() in [.vimrc](https://github.com/filipondios/dotfiles/blob/main/.vimrc). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
+In this repository, at previous commits there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) and [vim](https://github.com/vim/vim). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
 
 > [!NOTE]  
 > On the other hand, in commit [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543), you can find configurations for [i3](https://github.com/i3/i3), [xmonad](https://github.com/xmonad/xmonad), [rofi](https://github.com/davatorium/rofi), and possibly other Xorg-related config files.
-
-## Neovim 
-
-I use [packer](https://github.com/wbthomason/packer.nvim) as nvim's package manager. You must install it, and then 
-type the following command in your terminal to install all my plugins
-without reciving an error when opening nvim for the first time:
-```bash 
-# Equivalent to :PackerSync inside nvim
-nvim -c PackerSync
-```
 
 ## Keybindigs (hyprland)
 
@@ -61,14 +53,15 @@ nvim -c PackerSync
 | `Win` + `Shift` + `s`       | Take a screenshot                     |
 | `Win` + `Shift` + `q`       | Kill/quit window manager              |
 
-## Keybindings (neovim)
+## Keybindings (helix)
 
-| Mode     | Keys                | Action                        |
-| -------- | --------------------|-------------------------------|
-| `Normal` | `Alt` + `n`         | Switch to next buffer         |
-| `Normal` | `Alt` + `p`         | Switch to previous buffer     |
-| `Normal` | `Alt` + `c`         | Close current buffer          |
-| `Normal` | `Alt` + `s`         | Vertical split current buffer |
-| `Normal` | `Space` + `f` + `f` | Find file                     |
-| `Normal` | `Space` + `f` + `b` | Find buffer                   |
-| `Normal` | `Space` + `f` + `s` | Find string in files          |
+| Mode     | Keys                | Action                          |
+| -------- | --------------------|---------------------------------|
+| `Normal` | `Alt` + `Right Key` | Switch to next buffer           |
+| `Normal` | `Alt` + `Left Key`  | Switch to previous buffer       |
+| `Normal` | `Alt` + `x`         | Close current buffer            |
+| `Normal` | `Spacebar` + `f`    | Find file                       |
+| `Normal` | `Alt` + `r`         | Reload config                   |
+| `Normal` | `Alt` + `c`         | Toggle comments in current line |
+| `Normal` | `c`                 | Enter command mode              |
+| `Normal` | `Alt` + `n`         | New buffer                      |
