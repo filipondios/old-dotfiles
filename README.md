@@ -17,7 +17,9 @@
 
 Thanks for dropping by!
 
-This is my personal repository for my [`Arch Linux`](https://archlinux.org/) dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and you might not find this repository to your liking. 
+This is my personal repository for my [`Arch Linux`](https://archlinux.org/) dotfiles. I try to keep a 
+minimalist but elegant environment at the same time, which is difficult and you might not find this 
+repository to your liking. 
 
 Here are some information about my setup:
 
@@ -34,10 +36,20 @@ Here are some information about my setup:
 
 ## Other configs
 
-In this repository, at previous commits there are other configurations (although quite basic) for other programs such as [emacs](https://github.com/emacs-mirror/emacs) and [vim](https://github.com/vim/vim). While I’m not currently using them, I’d like to keep them stored here in case I change my mind in the future.
+In this repository, at previous commits there are other configurations (although quite basic) for other programs
+such as [emacs](https://github.com/emacs-mirror/emacs), [vim](https://github.com/vim/vim), [neovim](https://github.com/neovim/neovim),
+[rofi](https://github.com/davatorium/rofi), [xmonad](https://github.com/xmonad/xmonad) and [i3](https://github.com/i3/i3). While I’m not currently using them, I’d like to note the commits of the different programmes mentioned before:
 
-> [!NOTE]  
-> On the other hand, in commit [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543), you can find configurations for [i3](https://github.com/i3/i3), [xmonad](https://github.com/xmonad/xmonad), [rofi](https://github.com/davatorium/rofi), and possibly other Xorg-related config files.
+| Commit                                                                                             | Program/s          |
+|:--------------------------------------------------------------------------------------------------:|--------------------|
+| [13a2003](https://github.com/filipondios/dotfiles/commit/13a2003e8280157a7eb829ec4700b7bfc88a2297) | neovim, vim, emacs |
+| [2d8a6e2](https://github.com/filipondios/dotfiles/commit/2d8a6e29bd78205b26f317fdcf5b12354a77d543) | i3                 |
+| [13a0873](https://github.com/filipondios/dotfiles/commit/13a087341acdadb6b8123d0fb7f4ad8076e1c46f) | i3, xmonad         |
+| [23f7ebd](https://github.com/filipondios/dotfiles/commit/23f7ebd070a8e3527194869935a4429dbfede9cc) | i3, xmonad, dwm    |
+
+> [!NOTE]
+> The Emacs configuration includes two files containing compilation flags for Emacs in terminal and GUI mode,
+> both files being focused on a minimalist version of Emacs.
 
 ## Keybindigs (hyprland)
 
