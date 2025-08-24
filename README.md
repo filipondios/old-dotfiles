@@ -4,7 +4,7 @@
  <h1>Filipondios' Dotfiles</h1>
 </div>
 
-![preview](https://github.com/user-attachments/assets/67b18ed0-cc73-4c59-8f4f-b4b10e4ecb8e)
+![preview](https://github.com/user-attachments/assets/f23d9597-5deb-4140-a60f-981b6d25d183)
 
 
 <h1>
