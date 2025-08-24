@@ -49,7 +49,8 @@ such as [emacs](https://github.com/emacs-mirror/emacs), [vim](https://github.com
 
 > [!NOTE]
 > The Emacs configuration includes two files containing compilation flags for Emacs in terminal and GUI mode,
-> both files being focused on a minimalist version of Emacs.
+> both files being focused on a minimalist version of Emacs. The XMonad and i3 configs are also designed to be very
+> minimalistic, but the XMonad rice is way better looking.
 
 ## Keybindigs (hyprland)
 
