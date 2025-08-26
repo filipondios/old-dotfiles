@@ -1,27 +1,14 @@
-
 <div align='center'>
  <!-- Repo Title -->
  <h1>Filipondios' Dotfiles</h1>
+ <img src="https://github.com/user-attachments/assets/f23d9597-5deb-4140-a60f-981b6d25d183">
 </div>
-
-![preview](https://github.com/user-attachments/assets/f23d9597-5deb-4140-a60f-981b6d25d183)
-
-
-<h1>
-  <a href="#--------"><img alt="" align="right" src="https://img.shields.io/github/stars/filipondios/dotfiles?color=0C0E0F&labelColor=0C0E0F&style=for-the-badge"/></a>
-  <a href="#--------"><img alt="" align="left" src="https://badges.pufler.dev/visits/filipondios/dotfiles?style=flat-square&label=&color=0C0E0F&logo=github&logoColor=white&labelColor=0C0E0F"/></a>
-</h1>
-
 
 ## About
 
-Thanks for dropping by!
-
-This is my personal repository for my [`Arch Linux`](https://archlinux.org/) dotfiles. I try to keep a 
-minimalist but elegant environment at the same time, which is difficult and you might not find this 
-repository to your liking. 
-
-Here are some information about my setup:
+Thanks for dropping by! This is my personal repository for my [`Arch Linux`](https://archlinux.org/) 
+dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and
+you might not find this repository to your liking. Here are some information about my setup:
 
 - Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
 - Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
@@ -37,8 +24,10 @@ Here are some information about my setup:
 ## Other configs
 
 In this repository, at previous commits there are other configurations (although quite basic) for other programs
-such as [emacs](https://github.com/emacs-mirror/emacs), [vim](https://github.com/vim/vim), [neovim](https://github.com/neovim/neovim),
-[rofi](https://github.com/davatorium/rofi), [xmonad](https://github.com/xmonad/xmonad) and [i3](https://github.com/i3/i3). While I’m not currently using them, I’d like to note the commits of the different programmes mentioned before:
+such as [emacs](https://github.com/emacs-mirror/emacs), [vim](https://github.com/vim/vim), 
+[neovim](https://github.com/neovim/neovim), [rofi](https://github.com/davatorium/rofi),
+[xmonad](https://github.com/xmonad/xmonad) and [i3](https://github.com/i3/i3). While I’m not currently using them,
+I’d like to note the commits of the different programmes mentioned before:
 
 | Commit                                                                                             | Program/s          |
 |:--------------------------------------------------------------------------------------------------:|--------------------|
@@ -49,8 +38,8 @@ such as [emacs](https://github.com/emacs-mirror/emacs), [vim](https://github.com
 
 > [!NOTE]
 > The Emacs configuration includes two files containing compilation flags for Emacs in terminal and GUI mode,
-> both files being focused on a minimalist version of Emacs. The XMonad and i3 configs are also designed to be very
-> minimalistic, but the XMonad rice is way better looking.
+> both files being focused on a minimalist version of Emacs. The XMonad and i3 configs are also designed to be
+> very minimalistic, but the XMonad rice is way better looking.
 
 ## Keybindigs (hyprland)
 
