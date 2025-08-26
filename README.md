@@ -8,7 +8,7 @@
 
 Thanks for dropping by! This is my personal repository for my [`Arch Linux`](https://archlinux.org/) 
 dotfiles. I try to keep a minimalist but elegant environment at the same time, which is difficult and
-you might not find this repository to your liking. Here are some information about my setup:
+you might not find this repository to your liking. Here is my setup:
 
 - Window Manager: [`hyprland`](https://github.com/hyprwm/Hyprland)
 - Terminal: [`alacritty`](https://github.com/alacritty/alacritty)
