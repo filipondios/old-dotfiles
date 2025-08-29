@@ -47,13 +47,13 @@ I’d like to note the commits of the different programmes mentioned before:
 |-----------------------------|---------------------------------------|
 | `Win` + `Return`            | Open terminal                         |
 | `Win` + `q`                 | Close focused window                  |
-| `Win` + `d`                 | Open application launcher (rofi)      |
+| `Win` + `d`                 | Open application launcher (wofi)      |
 | `Win` + `[1..5]`            | Switch to workspace `1..5`            |
 | `Win` + `Shift` + `[1..5]`  | Send Window to workspace `1..5`       |
 | `Win` + `f`                 | Set focused window to fullscreen mode |
-| `Win` + `space`             | Toggle window floating status         |  
+| `Win` + `space`             | Toggle window floating status         |
 | `Win` + `Shift` + `s`       | Take a screenshot                     |
-| `Win` + `Shift` + `q`       | Kill/quit window manager              |
+| `Win` + `Shift` + `q`       | Exit hyprland                         |
 
 ## Keybindings (helix)
 
