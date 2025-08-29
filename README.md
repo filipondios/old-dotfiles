@@ -52,15 +52,15 @@ I’d like to note the commits of the different programmes mentioned before:
 | `Win` + `Shift` + `[1..5]`     | Send Window to workspace `1..5`                |
 | `Win` + `f`                    | Set focused window to fullscreen mode          |
 | `Win` + `space`                | Toggle window floating status                  |
-| `Win` + `Shift` + `Arrow keys` | Move window inside current workspace           |
-| `Win` + `Mouse Click`          | Move window inside current workspace           |
 | `Win` + `i`                    | Increase focused window horizontal size        |
 | `Win` + `j`                    | Decrease focused window horizontal size        |
 | `Win` + `Shift` + `i`          | Increase focused window vertical size          |
 | `Win` + `SHift` + `j`          | Decrease focused window vertical size          |
-| `Win` + `Arrow keys`           | Change focused window inside current workspace |
+| `Win` + `Arrow keys`           | Change focused window inside                   |
+| `Win` + `Shift` + `Arrow keys` | Move focused window inside workspace           |
+| `Win` + `Mouse Click`          | Move focused window inside workspace           |
 | `Win` + `Shift` + `s`          | Take a screenshot                              |
-| `Win` + `Shift` + `q`          | Exit hyprland                                  |
+| `Win` + `Shift` + `q`          | Exit/Kill hyprland session                     |
 
 ## Keybindings (helix)
 
