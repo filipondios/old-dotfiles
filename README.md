@@ -54,6 +54,10 @@ I’d like to note the commits of the different programmes mentioned before:
 | `Win` + `space`                | Toggle window floating status                  |
 | `Win` + `Shift` + `Arrow keys` | Move window inside current workspace           |
 | `Win` + `Mouse Click`          | Move window inside current workspace           |
+| `Win` + `i`                    | Increase focused window horizontal size        |
+| `Win` + `j`                    | Decrease focused window horizontal size        |
+| `Win` + `Shift` + `i`          | Increase focused window vertical size          |
+| `Win` + `SHift` + `j`          | Decrease focused window vertical size          |
 | `Win` + `Arrow keys`           | Change focused window inside current workspace |
 | `Win` + `Shift` + `s`          | Take a screenshot                              |
 | `Win` + `Shift` + `q`          | Exit hyprland                                  |
