@@ -16,6 +16,8 @@ you might not find this repository to your liking. Here is my setup:
 - Editor: [`helix`](https://github.com/helix-editor/helix)
 - Status Bar: [`waybar`](https://github.com/Alexays/Waybar)
 - Application Launcher: [`wofi`](https://github.com/SimplyCEO/wofi)
+- Screenshot manager: [`hyprshot`](https://github.com/Gustash/Hyprshot)
+- Wallpaper manager: [`hyprpaper`](https://github.com/hyprwm/hyprpaper)
 - Widget Theme: [`orchis`](https://github.com/vinceliuice/Orchis-theme)
 - Icon Theme: [`kora`](https://github.com/bikass/kora)
 - Cursor Theme: [`capitaine cursors`](https://github.com/keeferrourke/capitaine-cursors)
