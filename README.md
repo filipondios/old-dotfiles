@@ -1,3 +1,8 @@
+> [!NOTE]
+> This repository will be discontinued in the near future due to the large size it has acquired over time
+> from attaching images and other heavy files, giving way to a lighter repository with content more suited
+> to my needs, where I will likely change to another WM.
+
 <div align='center'>
  <!-- Repo Title -->
  <h1>Filipondios' Dotfiles</h1>
