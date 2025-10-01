@@ -1,11 +1,11 @@
 > [!NOTE]
-> This repository will be discontinued in the near future due to the large size it has acquired over time
+> This repository is discontinued due to the large size it has acquired over time
 > from attaching images and other heavy files, giving way to a lighter repository with content more suited
 > to my needs, where I will likely change to another WM.
 
 <div align='center'>
  <!-- Repo Title -->
- <h1>Filipondios' Dotfiles</h1>
+ <h1>Filipondios' Old Dotfiles</h1>
  <img src="https://github.com/user-attachments/assets/f23d9597-5deb-4140-a60f-981b6d25d183">
 </div>
 
